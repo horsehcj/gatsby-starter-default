@@ -1,3 +1,57 @@
+$header-height: 50px;
+$background-color: #0C0344; 
+
 header {
-  background-color: #0C0344;
+  background-color: $background-color;
+  color: white;
+  height: $header-height;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    position: relative;
+    padding-left: 75px;
+    line-height: $header-height;
+    max-width: calc(100vw - 240px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    img {
+      position: absolute;
+      height: $header-height;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    margin: 8px 0;
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 122px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: white;
+      color: $background-color;
+    }
+  }
 }

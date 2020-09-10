@@ -1,7 +1,22 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const fetch = require('node-fetch')
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  const firebaseResult = await fetch('https://court-finder-37f55.firebaseio.com/cancellation_status.json')
+  const resultData = await firebaseResult.json()
+
+  // createNode({
+  //   // nameWithOwner and url are arbitrary fields from the data
+  //   nameWithOwner: resultData.full_name,
+  //   url: resultData.html_url,
+  //   // required fields
+  //   id: 'example-build-time-data',
+  //   parent: null,
+  //   children: [],
+  //   internal: {
+  //     type: `Example`,
+  //     contentDigest: createContentDigest(resultData),
+  //   },
+  // })
+}

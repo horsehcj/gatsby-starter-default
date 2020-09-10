@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `顯示被放出黎嘅康文署羽球球場的網站`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@iwanttoplaybadminton`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
