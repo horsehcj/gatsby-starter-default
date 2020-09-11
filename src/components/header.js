@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Logo from "../images/i-want-to-book-court.png";
 import "./header.scss"
 import { requestFirebaseNotificationPermission } from '../firebaseInit'
+import axios from "axios";
 
 class Header extends Component {
   state = {
@@ -40,6 +41,16 @@ class Header extends Component {
       .then((firebaseToken) => {
         // eslint-disable-next-line no-console
         console.log(firebaseToken);
+
+        let body = {
+          token: firebaseToken,
+          settings: this.state.subscribe
+        };
+
+        return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
+      })
+      .then((res) => {
+        console.log(res)
       })
       .catch((err) => {
         return err;

@@ -20,7 +20,6 @@ export const requestFirebaseNotificationPermission = () =>
       .requestPermission()
       .then(() => messaging.getToken())
       .then((firebaseToken) => {
-        console.log("firebaseToken: "+ firebaseToken);
         resolve(firebaseToken);
       })
       .catch((err) => {
