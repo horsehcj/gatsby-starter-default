@@ -1,4 +1,4 @@
-$header-height: 50px;
+$header-height: 58px;
 $background-color: #0C0344; 
 
 header {
@@ -21,7 +21,7 @@ header {
     position: relative;
     padding-left: 75px;
     line-height: $header-height;
-    max-width: calc(100vw - 240px);
+    max-width: calc(100vw - 244px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -36,13 +36,13 @@ header {
 
   button {
     background: transparent;
-    border: 1px solid white;
+    border: 2px solid white;
     color: white;
-    margin: 8px 0;
+    margin: 12px 0;
     padding: 0 20px;
     border-radius: 4px;
     cursor: pointer;
-    width: 122px;
+    width: 124px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
     &:focus {
@@ -54,46 +54,53 @@ header {
       color: $background-color;
     }
   }
+}
 
-  .area-selection-container {
-    position: absolute;
-    width: calc(100% - 20px);
-    background-color: #DDD;
-    bottom: 0;
-    transform: translateY(100%);
-    left: 0;
-    color: black;
-    padding: 6px 0;
+.area-selection-container {
+  position: fixed;
+  width: calc(100% - 20px);
+  background-color: #DDD;
+  top: $header-height;
+  transform: translateY(-100%);
+  left: 0;
+  color: black;
+  padding: 6px 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  transition: transform 0.2s ease-in-out;
+
+  &.active {
+    transform: translateY(0%);
+  }
+
+  p {
+    margin: 4px 28px 0 0;
+  }
+
+  .area-selection {
     display: flex;
     justify-content: flex-end;
-    padding-right: 20px;
 
-    p {
-      margin: 4px 28px 0 0;
+    .form-group {
+      margin-right: 30px;
+      margin-top: 4px;
     }
+  }
 
-    .area-selection {
-      display: flex;
-      justify-content: flex-end;
+  .subscribe-button {
+    border: 2px solid black;
+    padding: 2px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
 
-      .form-group {
-        margin-right: 30px;
-        margin-top: 4px;
-      }
-    }
-
-    .subscribe-button {
-      border: 2px solid black;
-      padding: 2px 14px;
-      border-radius: 4px;
-      font-size: 14px;
-      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-      cursor: pointer;
-
-      &:hover {
-        background-color: black;
-        color: #DDD;
-      }
+    &:hover {
+      background-color: black;
+      color: #DDD;
+      outline: none;
     }
   }
 }

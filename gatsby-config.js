@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `顯示被放出黎嘅康文署羽毛球場的網站`,
+    title: `顯示被放出嚟嘅康文署羽毛球場的網站`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@iwanttoplaybadminton`,
   },
