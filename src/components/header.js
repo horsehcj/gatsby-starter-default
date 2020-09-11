@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Logo from "../images/i-want-to-book-court.png";
 import "./header.scss"
-import { requestFirebaseNotificationPermission } from '../firebaseInit'
+import firebase from "gatsby-plugin-firebase"
 import axios from "axios";
 
 class Header extends Component {
@@ -37,11 +37,10 @@ class Header extends Component {
   }
 
   requestNotificationPermission = () => {
-    requestFirebaseNotificationPermission()
+    firebase.messaging()
+      .requestPermission()
+      .then(() => firebase.messaging().getToken())
       .then((firebaseToken) => {
-        // eslint-disable-next-line no-console
-        console.log(firebaseToken);
-
         let body = {
           token: firebaseToken,
           settings: this.state.subscribe
@@ -53,7 +52,7 @@ class Header extends Component {
         console.log(res)
       })
       .catch((err) => {
-        return err;
+        console.log(err)
       });
   }
 
