@@ -39,9 +39,7 @@ module.exports = {
         credentials: {
           apiKey: "AIzaSyCz8uvhrsRuHd-ptHfpkzl8rTWhGXbWWTw",
           authDomain: "court-finder-37f55.firebaseapp.com",
-          databaseURL: "https://court-finder-37f55.firebaseio.com",
           projectId: "court-finder-37f55",
-          storageBucket: "court-finder-37f55.appspot.com",
           messagingSenderId: "590505064574",
           appId: "1:590505064574:web:d89abfa45de77c9a13802f"
         }

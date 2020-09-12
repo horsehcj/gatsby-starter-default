@@ -21,7 +21,7 @@ header {
     position: relative;
     padding-left: 75px;
     line-height: $header-height;
-    max-width: calc(100vw - 244px);
+    max-width: calc(100vw - 274px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -42,7 +42,7 @@ header {
     padding: 0 20px;
     border-radius: 4px;
     cursor: pointer;
-    width: 124px;
+    width: 154px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
     &:focus {
@@ -118,6 +118,10 @@ header {
     .area-selection {
       justify-content: flex-start;
       margin-bottom: 15px;
+
+      .form-group {
+        margin-right: 20px;
+      }
     }
 
     .subscribe-button {

@@ -4,16 +4,47 @@ import "./header.scss"
 import firebase from "gatsby-plugin-firebase"
 import axios from "axios";
 
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 class Header extends Component {
   componentDidMount() {
+    const firebaseToken = getCookie('lcsdFirebaseToken')
+    if( firebaseToken ) {
+      axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-settings?token=" + firebaseToken)
+        .then((val) => {
+          this.setState({ alreadySubscribe: true });
+
+          this.setState({ subscribe: {
+            kowloon: val.data.kowloon,
+            hongkong: val.data.hongkong,
+            nt: val.data.nt,
+            id: val.data.id
+          }});
+        })
+    }
+
     firebase.messaging().onMessage((payload) => {
-      // Process your message as required
       alert('Front end Message received. ', payload)
       console.log('Front end Message received. ', payload)
     });
   }
 
   state = {
+    alreadySubscribe: false,
     showSubscribsionBar: false,
     areaName: {
       kowloon: '九龍',
@@ -48,18 +79,22 @@ class Header extends Component {
     firebase.messaging()
       .requestPermission()
       .then(() => firebase.messaging().getToken())
-      .then((firebaseToken) => {
+      .then((lcsdFirebaseToken) => {
+        document.cookie = "lcsdFirebaseToken=" + lcsdFirebaseToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
+
         let body = {
-          token: firebaseToken,
+          token: lcsdFirebaseToken,
           settings: this.state.subscribe
         };
 
         return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
       })
       .then((res) => {
+        console.log(res)
         this.setState({ showSubscribsionBar: false });
       })
       .catch((err) => {
+        alert('請再試一次')
         console.log(err)
       });
   }
@@ -67,8 +102,7 @@ class Header extends Component {
   render() {
     const { siteTitle } = this.props;
     const { subscribe } = this.state;
-    const { areaName } = this.state;
-    const { showSubscribsionBar } = this.state;
+    const { areaName, alreadySubscribe, showSubscribsionBar } = this.state;
 
     return (
       <React.Fragment>
@@ -79,7 +113,7 @@ class Header extends Component {
           </h1>
 
           <button onClick={this.toggleSubscribsionBar}>
-            網站推送通知
+            {alreadySubscribe? '更新網站推送通知' : '網站推送通知'}
           </button>
         </header>
 
@@ -99,7 +133,7 @@ class Header extends Component {
             }
           </div>
           <button className="subscribe-button noselect" onClick={this.requestNotificationPermission} onKeyDown={this.requestNotificationPermission}>
-            確認
+            {alreadySubscribe? '更新' : '確認'}
           </button>
         </div>
       </React.Fragment>
