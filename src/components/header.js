@@ -5,6 +5,14 @@ import firebase from "gatsby-plugin-firebase"
 import axios from "axios";
 
 class Header extends Component {
+  componentDidMount() {
+    firebase.messaging().onMessage((payload) => {
+      // Process your message as required
+      alert('Front end Message received. ', payload)
+      console.log('Front end Message received. ', payload)
+    });
+  }
+
   state = {
     showSubscribsionBar: false,
     areaName: {
