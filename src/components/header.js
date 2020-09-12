@@ -44,6 +44,7 @@ class Header extends Component {
   }
 
   state = {
+    isLoading: false,
     alreadySubscribe: false,
     showSubscribsionBar: false,
     areaName: {
@@ -76,6 +77,7 @@ class Header extends Component {
   }
 
   requestNotificationPermission = () => {
+    this.setState({ isLoading: true });
     firebase.messaging()
       .requestPermission()
       .then(() => firebase.messaging().getToken())
@@ -90,10 +92,14 @@ class Header extends Component {
         return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
       })
       .then((res) => {
-        console.log(res)
         this.setState({ showSubscribsionBar: false });
+
+        setTimeout(() => {
+          this.setState({ isLoading: false });
+        }, 300)
       })
       .catch((err) => {
+        this.setState({ isLoading: false });
         alert('請再試一次')
         console.log(err)
       });
@@ -102,7 +108,7 @@ class Header extends Component {
   render() {
     const { siteTitle } = this.props;
     const { subscribe } = this.state;
-    const { areaName, alreadySubscribe, showSubscribsionBar } = this.state;
+    const { areaName, alreadySubscribe, showSubscribsionBar, isLoading } = this.state;
 
     return (
       <React.Fragment>
@@ -133,7 +139,7 @@ class Header extends Component {
             }
           </div>
           <button className="subscribe-button noselect" onClick={this.requestNotificationPermission} onKeyDown={this.requestNotificationPermission}>
-            {alreadySubscribe? '更新' : '確認'}
+            {isLoading? '請等等...' : (alreadySubscribe? '更新' : '確認')}
           </button>
         </div>
       </React.Fragment>
