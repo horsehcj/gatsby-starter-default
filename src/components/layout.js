@@ -32,9 +32,9 @@ const Layout = ({ children }) => {
         </div>
       </main>
       <footer>
-        © {new Date().getFullYear()}, Built by
+        © {new Date().getFullYear()}, contact
         {` `}
-        <a href="https://www.gatsbyjs.org">Badmintoner</a>
+        <a title="contact" href="mailto: hello@iwanttoplaybadminton.com">hello@iwanttoplaybadminton.com</a>
       </footer>
     </>
   )

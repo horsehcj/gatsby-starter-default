@@ -1,11 +1,21 @@
 .cancellation-status-table {
   display: flex;
   max-width: 768px;
-  margin: 60px auto 0;
+  margin: 20px auto 0;
   flex-direction: column;
 
   p {
     margin-top: 0;
+
+    &.intro {
+      padding: 0 40px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+
+      @media only screen and (max-width: 768px) {
+        padding: 0;
+      }
+    }
   }
 
   .cancellation-status-current-date {

@@ -38,8 +38,7 @@ class Header extends Component {
     }
 
     firebase.messaging().onMessage((payload) => {
-      alert('Front end Message received. ', payload)
-      console.log('Front end Message received. ', payload)
+      window.location.reload();
     });
   }
 

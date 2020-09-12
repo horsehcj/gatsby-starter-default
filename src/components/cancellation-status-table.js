@@ -16,16 +16,29 @@ class CancellationStatusDate extends Component {
       }
     }
 
+    function compare1(a, b) {
+      if (a.date*1 > b.date*1) return -1;
+      if (b.date*1 > a.date*1) return 1;
+      return 0;
+    }
+
+    function compare2(a, b) {
+      if (a.time*1 > b.time*1) return -1;
+      if (b.time*1 > a.time*1) return 1;
+      return 0;
+    }
+
     return (
       <div className="cancellation-status-table">
-        { this.props.cancellations.reverse().map((currectDate) => {
+        <p className="intro">康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知，所以如果想第一時間得到最新羽毛球場空缺資訊，記得㩒右上角〝網站推送通知”，然後㩒〝允許〞或者 "Accept"，你可以選擇收到一個或多個區嘅通知。</p>
+        { this.props.cancellations.sort(compare1).map((currectDate) => {
             return (
               <div key={currectDate.date} className="cancellation-status-current-date">
                 <div className="cancellation-status-current-date-label">
                   {SetDisplayDate(currectDate.date)}
                 </div>
                 <div className="cancellation-status-current-times">
-                  { currectDate.times.reverse().map((currectTime) => {
+                  { currectDate.times.sort(compare2).map((currectTime) => {
                     return (
                       <div key={currectTime.time} className="cancellation-status-current-time">
                         <div className="cancellation-status-current-time-label">
