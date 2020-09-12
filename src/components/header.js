@@ -31,8 +31,7 @@ class Header extends Component {
           this.setState({ subscribe: {
             kowloon: val.data.kowloon,
             hongkong: val.data.hongkong,
-            nt: val.data.nt,
-            id: val.data.id
+            nt: val.data.nt
           }});
         })
     }
@@ -49,14 +48,12 @@ class Header extends Component {
     areaName: {
       kowloon: '九龍',
       hongkong: '香港島',
-      nt: '新界',
-      id: '離島'
+      nt: '新界'
     },
     subscribe: {
       kowloon: true,
       hongkong: true,
-      nt: true,
-      id: false
+      nt: true
     }
   };
 
