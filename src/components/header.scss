@@ -45,7 +45,7 @@ header {
     width: 124px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
-    &::focus {
+    &:focus {
       outline: none;
     }
 
@@ -58,16 +58,15 @@ header {
 
 .area-selection-container {
   position: fixed;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   background-color: #DDD;
   top: $header-height;
   transform: translateY(-100%);
   left: 0;
   color: black;
-  padding: 6px 0;
   display: flex;
   justify-content: flex-end;
-  padding-right: 20px;
+  padding: 6px 20px;
   transition: transform 0.2s ease-in-out;
 
   &.active {
@@ -105,6 +104,24 @@ header {
 
     &:focus {
       outline: none;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    padding-bottom: 15px;
+
+    p {
+      margin: 15px 0;
+    }
+
+    .area-selection {
+      justify-content: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .subscribe-button {
+      padding: 5px 0;
     }
   }
 }

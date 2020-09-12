@@ -57,7 +57,7 @@ class Header extends Component {
         return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
       })
       .then((res) => {
-        console.log(res)
+        this.setState({ showSubscribsionBar: false });
       })
       .catch((err) => {
         console.log(err)
