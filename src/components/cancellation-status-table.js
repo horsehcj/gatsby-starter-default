@@ -4,17 +4,25 @@ import Moment from 'react-moment';
 
 class CancellationStatusDate extends Component {
   render() {
+    const d = new Date();
+    const month = ('0'+(d.getMonth()+1)).slice(-2)
+    const day = ('0'+d.getDate()).slice(-2)
+
+    function SetDisplayDate(date) {
+      if (date === d.getFullYear()+month+day) {
+        return <p>今日</p>
+      } else {
+        return <p>{date.substring(0, 4)}<br />{date.substring(4, 6)}<br />{date.substring(6)}</p>
+      }
+    }
+
     return (
       <div className="cancellation-status-table">
         { this.props.cancellations.reverse().map((currectDate) => {
             return (
               <div key={currectDate.date} className="cancellation-status-current-date">
                 <div className="cancellation-status-current-date-label">
-                  <p>
-                    {currectDate.date.substring(0, 4)}<br />
-                    {currectDate.date.substring(4, 6)}<br />
-                    {currectDate.date.substring(6)}
-                  </p>
+                  {SetDisplayDate(currectDate.date)}
                 </div>
                 <div className="cancellation-status-current-times">
                   { currectDate.times.reverse().map((currectTime) => {
@@ -33,12 +41,17 @@ class CancellationStatusDate extends Component {
                                   </Moment>
                                 </p>
                                 <div className="cancellation-status-current-time-court-details">
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
-                                  <p>源禾路體育館 9:00 有4個場被取消</p>
+                                  { date.courts.map((court) => {
+                                    return (
+                                      <React.Fragment key={court.id}>
+                                        { court.availabilities.map((availability) => {
+                                          return (
+                                            <p key={availability.time}>{court.id} {availability.time.substring(0,2)}:{availability.time.substring(2,4)} 有{availability.qty}個場被取消</p>
+                                          )
+                                        })}
+                                      </React.Fragment>
+                                    )
+                                  })}
                                 </div>
                               </React.Fragment>
                             )

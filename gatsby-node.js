@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const venues = require('./resources/venues.json')
 
 // gatsby-node.js
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
@@ -51,7 +52,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
 
           for (const court in content[currentDate][currentTime][date]) {
             courtObj = {}
-            courtObj['id'] = court
+            courtObj['id'] = venues[court].name.TC
             courtObj['availabilities'] = []
 
             for (const availability in content[currentDate][currentTime][date][court]) {
