@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
         </div>
       </main>
       <footer>
-        © {new Date().getFullYear()}, contact
+        ©{new Date().getFullYear()}, contact
         {` `}
         <a title="contact" href="mailto: hello@iwanttoplaybadminton.com">hello@iwanttoplaybadminton.com</a>
       </footer>

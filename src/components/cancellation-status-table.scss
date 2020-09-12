@@ -4,6 +4,10 @@
   margin: 20px auto 0;
   flex-direction: column;
 
+  @media only screen and (max-width: 768px) {
+    padding: 0 20px;
+  }
+
   p {
     margin-top: 0;
 
@@ -22,6 +26,10 @@
     display: flex;
     justify-content: center;
 
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .cancellation-status-current-date-label {
       font-size: 32px;
       text-align: right;
@@ -32,6 +40,11 @@
 
       @media only screen and (max-width: 768px) {
         width: auto;
+        text-align: left;
+
+        br {
+          display: none;
+        }
       }
 
       p {
@@ -55,6 +68,11 @@
           font-size: 42px;
           line-height: 1;
           padding-right: 40px;
+
+          @media only screen and (max-width: 768px) {
+            font-size: 28px;
+            padding-right: 20px;
+          }
 
           p {
             position: sticky;
