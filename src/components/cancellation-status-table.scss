@@ -1,0 +1,51 @@
+.cancellation-status-table {
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  flex-direction: column;
+
+  p {
+    margin-top: 0;
+  }
+
+  .cancellation-status-current-date {
+    display: flex;
+
+    .cancellation-status-current-date-label {
+      font-size: 32px;
+      text-align: right;
+      color: #d8d8d8;
+      line-height: 1.2;
+      padding-right: 28px;
+
+      p {
+        position: sticky;
+        top: 70px;
+      }
+    }
+
+    .cancellation-status-current-times {
+      .cancellation-status-current-time {
+        display: flex;
+        flex-direction: row;
+
+        .cancellation-status-current-time-label {
+          font-size: 48px;
+          line-height: 1;
+          padding-right: 28px;
+
+          p {
+            position: sticky;
+            top: 70px;
+          }
+        }
+
+        .cancellation-status-current-time-court {
+          .cancellation-status-current-time-court-details {
+            margin-bottom: 28px;
+          }
+        }
+      }
+    }
+  }
+}

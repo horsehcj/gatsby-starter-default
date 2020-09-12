@@ -2,14 +2,36 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CancellationStatusTable from "../components/cancellation-status-table"
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <CancellationStatusTable cancellations={data.cancellationStatus.cancellations} />
   </Layout>
 )
+
+export const query = graphql`
+  query CourtsQuery {
+    cancellationStatus {
+      cancellations {
+        date
+        times {
+          time
+          dates {
+            date
+            courts {
+              id
+              availabilities {
+                time
+                qty
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage
