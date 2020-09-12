@@ -26,13 +26,17 @@ class Header extends Component {
     if( firebaseToken ) {
       axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-settings?token=" + firebaseToken)
         .then((val) => {
-          this.setState({ alreadySubscribe: true });
+          if (val.data) {
+            this.setState({ alreadySubscribe: true });
 
-          this.setState({ subscribe: {
-            kowloon: val.data.kowloon,
-            hongkong: val.data.hongkong,
-            nt: val.data.nt
-          }});
+            this.setState({ subscribe: {
+              kowloon: val.data.kowloon,
+              hongkong: val.data.hongkong,
+              nt: val.data.nt
+            }});
+          } else {
+            document.cookie = "lcsdFirebaseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          }
         })
     }
 
