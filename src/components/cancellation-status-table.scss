@@ -1,7 +1,7 @@
 .cancellation-status-table {
   display: flex;
   max-width: 768px;
-  margin: 20px auto 0;
+  margin: 20px auto 60px;
   flex-direction: column;
 
   @media only screen and (max-width: 768px) {
@@ -70,7 +70,7 @@
         flex-direction: row;
 
         .cancellation-status-current-time-label {
-          font-size: 42px;
+          font-size: 40px;
           line-height: 1;
           padding-right: 40px;
 
@@ -82,16 +82,28 @@
           p {
             position: sticky;
             top: 100px;
+
+            span {
+              display: block;
+              font-size: 14px;
+              margin: 3px 0 0 3px;
+              opacity: 0.5;
+            }
           }
         }
 
         .cancellation-status-current-time-court {
           .cancellation-status-current-time-court-date-label {
             font-size: 18px;
+            margin-bottom: 0.4em;
           }
 
           .cancellation-status-current-time-court-details {
             margin-bottom: 40px;
+
+            p {
+              margin-bottom: 0.4em;
+            }
           }
         }
       }

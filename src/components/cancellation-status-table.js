@@ -30,7 +30,7 @@ class CancellationStatusDate extends Component {
 
     return (
       <div className="cancellation-status-table">
-        <p className="intro">康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知，所以如果想第一時間得到最新羽毛球場空缺資訊，記得㩒右上角〝網站推送通知”，然後㩒〝允許〞或者 "Accept"，你可以選擇收到一個或多個區嘅通知。<br /><br />康體通網址: <a title="康體通" target="_blank" href="http://w2.leisurelink.lcsd.gov.hk/index/index.jsp">http://w2.leisurelink.lcsd.gov.hk/index/index.jsp</a></p>
+        <p className="intro">康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知，所以如果想第一時間得到最新羽毛球場空缺資訊，記得㩒右上角〝網站推送通知”，然後㩒〝允許〞或者 "Accept"，你可以選擇收到一個或多個區嘅通知。<br /><br />康體通網址: <a title="康體通" target="_blank" rel="noreferrer" href="http://w2.leisurelink.lcsd.gov.hk/index/index.jsp">http://w2.leisurelink.lcsd.gov.hk/index/index.jsp</a></p>
         { this.props.cancellations.sort(compare1).map((currectDate) => {
             return (
               <div key={currectDate.date} className="cancellation-status-current-date">
@@ -42,7 +42,7 @@ class CancellationStatusDate extends Component {
                     return (
                       <div key={currectTime.time} className="cancellation-status-current-time">
                         <div className="cancellation-status-current-time-label">
-                          <p>{currectTime.time.substring(0, 2)}:{currectTime.time.substring(2, 4)}</p>
+                          <p>{currectTime.time.substring(0, 2)}:{currectTime.time.substring(2, 4)}<span>放場</span></p>
                         </div>
                         <div className="cancellation-status-current-time-court">
                           { currectTime.dates.map((date) => {
