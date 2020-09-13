@@ -44,6 +44,12 @@ module.exports = {
           appId: "1:590505064574:web:d89abfa45de77c9a13802f"
         }
       }
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "UA-177784275-1",
+      },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
