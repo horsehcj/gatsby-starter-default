@@ -46,9 +46,10 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        id: "UA-177784275-1",
+        // your google analytics tracking id
+        trackingId: `UA-177784275-1`
       },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
