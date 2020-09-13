@@ -129,7 +129,11 @@ header {
       margin-bottom: 15px;
 
       .form-group {
-        margin-right: 16px;
+        margin-right: 18px;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
 
