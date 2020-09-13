@@ -8,7 +8,6 @@ class CancellationStatusDate extends Component {
     axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-todays-cancellations")
       .then((val) => {
         if (val.data) {
-          console.log(val.data[0])
           this.setState({ todaysCancellations: val.data[0] });
         }
       })
