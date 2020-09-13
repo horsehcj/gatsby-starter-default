@@ -32,7 +32,8 @@ class Header extends Component {
             this.setState({ subscribe: {
               kowloon: val.data.kowloon,
               hongkong: val.data.hongkong,
-              nt: val.data.nt
+              nte: val.data.nte,
+              ntw: val.data.ntw
             }});
           } else {
             document.cookie = "lcsdFirebaseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -52,12 +53,14 @@ class Header extends Component {
     areaName: {
       kowloon: '九龍',
       hongkong: '香港島',
-      nt: '新界'
+      nte: '新界東',
+      ntw: '新界西'
     },
     subscribe: {
       kowloon: true,
       hongkong: true,
-      nt: true
+      nte: true,
+      ntw: true
     }
   };
 
