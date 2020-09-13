@@ -31,46 +31,51 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
     let courtsArr = []
     let courtObj = {}
 
+    const hongkongTimeStamp = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 1000 * 60 + 8 * 60 * 1000 * 60).getTime()
+    const hongkongDate = new Date(hongkongTimeStamp)
+
     for (const currentDate in content) {
-      // reset
-      currentDateObj = {}
+      if (currentDate !== hongkongDate.getFullYear() + ('0'+(hongkongDate.getMonth()+1)).slice(-2) + ('0'+hongkongDate.getDate()).slice(-2) ) {
+        // reset
+        currentDateObj = {}
 
-      currentDateObj['date'] = currentDate
-      currentDateObj['times'] = []
+        currentDateObj['date'] = currentDate
+        currentDateObj['times'] = []
 
-      for (const currentTime in content[currentDate]) {
-        timeObj = {}
-        datesArr = []
+        for (const currentTime in content[currentDate]) {
+          timeObj = {}
+          datesArr = []
 
-        timeObj['time'] = currentTime
+          timeObj['time'] = currentTime
 
-        for (const date in content[currentDate][currentTime]) {
-          dateObj = {}
-          courtsArr = []
+          for (const date in content[currentDate][currentTime]) {
+            dateObj = {}
+            courtsArr = []
 
-          dateObj['date'] = date
+            dateObj['date'] = date
 
-          for (const court in content[currentDate][currentTime][date]) {
-            courtObj = {}
-            courtObj['id'] = venues[court].name.TC
-            courtObj['availabilities'] = []
+            for (const court in content[currentDate][currentTime][date]) {
+              courtObj = {}
+              courtObj['id'] = venues[court].name.TC
+              courtObj['availabilities'] = []
 
-            for (const availability in content[currentDate][currentTime][date][court]) {
-              courtObj['availabilities'].push({
-                time: availability,
-                qty: content[currentDate][currentTime][date][court][availability]
-              })
+              for (const availability in content[currentDate][currentTime][date][court]) {
+                courtObj['availabilities'].push({
+                  time: availability,
+                  qty: content[currentDate][currentTime][date][court][availability]
+                })
+              }
+
+              courtsArr.push(courtObj)
             }
 
-            courtsArr.push(courtObj)
+            dateObj['courts'] = courtsArr
+            datesArr.push(dateObj)
           }
 
-          dateObj['courts'] = courtsArr
-          datesArr.push(dateObj)
+          timeObj['dates'] = datesArr
+          currentDateObj['times'].push(timeObj)
         }
-
-        timeObj['dates'] = datesArr
-        currentDateObj['times'].push(timeObj)
       }
 
       cancellations_data.push(currentDateObj)
