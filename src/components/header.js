@@ -39,11 +39,11 @@ class Header extends Component {
             document.cookie = "lcsdFirebaseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           }
         })
-    }
 
-    firebase.messaging().onMessage((payload) => {
-      window.location.reload();
-    });
+      firebase.messaging().onMessage((payload) => {
+        window.location.reload();
+      });
+    }
   }
 
   state = {
@@ -80,33 +80,37 @@ class Header extends Component {
   }
 
   requestNotificationPermission = () => {
-    this.setState({ isLoading: true });
-    firebase.messaging()
-      .requestPermission()
-      .then(() => firebase.messaging().getToken())
-      .then((lcsdFirebaseToken) => {
-        document.cookie = "lcsdFirebaseToken=" + lcsdFirebaseToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
+    if (firebase.messaging.isSupported()) {
+      this.setState({ isLoading: true });
+      firebase.messaging()
+        .requestPermission()
+        .then(() => firebase.messaging().getToken())
+        .then((lcsdFirebaseToken) => {
+          document.cookie = "lcsdFirebaseToken=" + lcsdFirebaseToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
 
-        let body = {
-          token: lcsdFirebaseToken,
-          settings: this.state.subscribe
-        };
+          let body = {
+            token: lcsdFirebaseToken,
+            settings: this.state.subscribe
+          };
 
-        return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
-      })
-      .then((res) => {
-        this.setState({ alreadySubscribe: true });
-        this.setState({ showSubscribsionBar: false });
+          return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
+        })
+        .then((res) => {
+          this.setState({ alreadySubscribe: true });
+          this.setState({ showSubscribsionBar: false });
 
-        setTimeout(() => {
+          setTimeout(() => {
+            this.setState({ isLoading: false });
+          }, 300)
+        })
+        .catch((err) => {
           this.setState({ isLoading: false });
-        }, 300)
-      })
-      .catch((err) => {
-        this.setState({ isLoading: false });
-        alert('請再試一次')
-        console.log(err)
-      });
+          alert('請再試一次')
+          console.log(err)
+        });
+    } else {
+      alert('網站推送只適用係 Chrome, Firefox 或 Edge 17+')
+    } 
   }
 
   render() {
