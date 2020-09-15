@@ -6,7 +6,10 @@ import CancellationStatusTable from "../components/cancellation-status-table"
 
 const IndexPage = ({data}) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO
+      title="顯示被放出嚟嘅康文署羽毛球場嘅網站"
+      lang="zh-hk"
+    />
     <CancellationStatusTable cancellations={data.cancellationStatus.cancellations} />
   </Layout>
 )
