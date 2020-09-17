@@ -126,7 +126,7 @@ class Header extends Component {
             {siteTitle}
           </h1>
 
-          <button onClick={this.toggleSubscribsionBar}>
+          <button className={alreadySubscribe? '': 'non-register'} onClick={this.toggleSubscribsionBar}>
             {alreadySubscribe? '更新網站推送通知' : '網站推送通知'}
           </button>
         </header>
