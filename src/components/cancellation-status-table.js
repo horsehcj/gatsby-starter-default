@@ -53,7 +53,7 @@ class CancellationStatusDate extends Component {
       todaysCancellationsDOM = (
         <div className="cancellation-status-current-date is-fetching">
           <div className="cancellation-status-current-date-label">
-            <p>今日</p>
+            <p className="bold">今日</p>
           </div>
           <div className="cancellation-status-current-times">
             <div className="cancellation-status-current-time">
@@ -89,7 +89,7 @@ class CancellationStatusDate extends Component {
       todaysCancellationsDOM = (
         <div className="cancellation-status-current-date">
           <div className="cancellation-status-current-date-label">
-            <p>今日</p>
+            <p className="bold">今日</p>
           </div>
           <div className="cancellation-status-current-times">
             { todaysCancellations.times.sort(compare2).map((currectTime) => {
@@ -134,7 +134,7 @@ class CancellationStatusDate extends Component {
       todaysCancellationsDOM = (
         <div className="cancellation-status-current-date no-data">
           <div className="cancellation-status-current-date-label">
-            <p>今日</p>
+            <p className="bold">今日</p>
           </div>
           <div className="cancellation-status-current-times">
             <div className="cancellation-status-current-time">
@@ -144,7 +144,7 @@ class CancellationStatusDate extends Component {
                 </p>
               </div>
               <div className="cancellation-status-current-time-court">
-                <p className="loading cancellation-status-current-time-court-date-label">
+                <p className="bold loading cancellation-status-current-time-court-date-label">
                   今日未有球場被放出嚟
                 </p>
               </div>
