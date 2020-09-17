@@ -8,12 +8,14 @@ class CancellationStatusDate extends Component {
     axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-todays-cancellations")
       .then((val) => {
         if (val.data) {
+          this.setState({ isFetching: false })
           this.setState({ todaysCancellations: val.data[0] });
         }
       })
   }
 
   state = {
+    isFetching: true,
     todaysCancellations: {}
   }
 
@@ -21,7 +23,7 @@ class CancellationStatusDate extends Component {
     const d = new Date();
     const month = ('0'+(d.getMonth()+1)).slice(-2)
     const day = ('0'+d.getDate()).slice(-2)
-    const { todaysCancellations } = this.state
+    const { todaysCancellations, isFetching } = this.state
 
     function SetDisplayDate(date) {
       if (date === d.getFullYear()+month+day) {
@@ -50,7 +52,44 @@ class CancellationStatusDate extends Component {
     }
 
     let todaysCancellationsDOM
-    if (todaysCancellations.times && todaysCancellations.times.length) {
+
+    if (isFetching) {
+      todaysCancellationsDOM = (
+        <div className="cancellation-status-current-date is-fetching">
+          <div className="cancellation-status-current-date-label">
+            <p>今日</p>
+          </div>
+          <div className="cancellation-status-current-times">
+            <div className="cancellation-status-current-time">
+              <div className="cancellation-status-current-time-label">
+                <p className="loading">
+                  00:00
+                </p>
+              </div>
+              <div className="cancellation-status-current-time-court">
+                <p className="loading cancellation-status-current-time-court-date-label">
+                  xxxx Xxx 2020 (Xxx)
+                </p>
+                <div className="cancellation-status-current-time-court-details">
+                  <p className="loading">
+                    XXX體育館 00:00 有X個場被取消
+                  </p>
+                  <p className="loading">
+                    XXX體育館 00:00 有X個場被取消
+                  </p>
+                  <p className="loading">
+                    XXX體育館 00:00 有X個場被取消
+                  </p>
+                  <p className="loading">
+                    XXX體育館 00:00 有X個場被取消
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else if (todaysCancellations.times && todaysCancellations.times.length) {
       todaysCancellationsDOM = (
         <div className="cancellation-status-current-date">
           <div className="cancellation-status-current-date-label">
@@ -96,7 +135,27 @@ class CancellationStatusDate extends Component {
         </div>
       )
     } else {
-      todaysCancellationsDOM = ''
+      todaysCancellationsDOM = (
+        <div className="cancellation-status-current-date no-data">
+          <div className="cancellation-status-current-date-label">
+            <p>今日</p>
+          </div>
+          <div className="cancellation-status-current-times">
+            <div className="cancellation-status-current-time">
+              <div className="cancellation-status-current-time-label">
+                <p className="hide">
+                  00:00
+                </p>
+              </div>
+              <div className="cancellation-status-current-time-court">
+                <p className="loading cancellation-status-current-time-court-date-label">
+                  今日未有球場被放出嚟
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     }
 
     return (
