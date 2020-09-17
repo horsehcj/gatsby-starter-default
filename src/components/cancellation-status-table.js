@@ -26,11 +26,7 @@ class CancellationStatusDate extends Component {
     const { todaysCancellations, isFetching } = this.state
 
     function SetDisplayDate(date) {
-      if (date === d.getFullYear()+month+day) {
-        return <p>今日</p>
-      } else {
-        return <p>{date.substring(0, 4)}<br />{date.substring(4, 6)}<br />{date.substring(6)}</p>
-      }
+      return <p>{date.substring(0, 4)}<br />{date.substring(4, 6)}<br />{date.substring(6)}</p>
     }
 
     function compare1(a, b) {
