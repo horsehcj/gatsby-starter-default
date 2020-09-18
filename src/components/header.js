@@ -52,13 +52,6 @@ class Header extends Component {
             this.sendTokenToServer(refreshedFirebaseToken);
           })
       });
-
-      firebase.messaging().getToken()
-        .then((refreshedFirebaseToken) => {
-          console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
-          this.setTokenSentToServer(false);
-          this.sendTokenToServer(refreshedFirebaseToken);
-        })
     }
   }
 
@@ -96,8 +89,6 @@ class Header extends Component {
   }
 
   sendTokenToServer(currentToken) {
-    console.log("sendTokenToServer: " + currentToken)
-
     if (!this.isTokenSentToServer()) {
       document.cookie = "lcsdFirebaseToken=" + currentToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
 
@@ -117,12 +108,10 @@ class Header extends Component {
   }
 
   setTokenSentToServer = (sent) => {
-    console.log("setTokenSentToServer: " + sent)
     window.localStorage.setItem('sentToServer', sent ? 0 : 0);
   }
 
   isTokenSentToServer = () => {
-    console.log("isTokenSentToServer")
     return window.localStorage.getItem('sentToServer') == 1;
   }
 
