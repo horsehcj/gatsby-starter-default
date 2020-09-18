@@ -51,7 +51,7 @@ class Header extends Component {
             setTokenSentToServer(false);
             sendTokenToServer(refreshedToken);
           })
-      }
+      });
 
       console.log(setTokenSentToServer)
       console.log(this.setTokenSentToServer)
