@@ -52,6 +52,13 @@ class Header extends Component {
             this.sendTokenToServer(refreshedToken);
           })
       });
+
+      firebase.messaging().getToken()
+        .then((refreshedFirebaseToken) => {
+          console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
+          this.setTokenSentToServer(false);
+          this.sendTokenToServer(refreshedToken);
+        })
     }
   }
 
@@ -92,7 +99,17 @@ class Header extends Component {
     console.log("sendTokenToServer: " + currentToken)
 
     if (!this.isTokenSentToServer()) {
-      this.setTokenSentToServer(true);
+      document.cookie = "lcsdFirebaseToken=" + currentToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
+
+      let body = {
+        token: currentToken,
+        settings: this.state.subscribe
+      };
+
+      axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
+        .then(() => {
+          this.setTokenSentToServer(true);
+        })
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
           'unless it changes');
@@ -101,13 +118,11 @@ class Header extends Component {
 
   setTokenSentToServer = (sent) => {
     console.log("setTokenSentToServer: " + sent)
-
     window.localStorage.setItem('sentToServer', sent ? 0 : 0);
   }
 
   isTokenSentToServer = () => {
     console.log("isTokenSentToServer")
-
     return window.localStorage.getItem('sentToServer') == 1;
   }
 
