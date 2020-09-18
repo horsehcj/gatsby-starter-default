@@ -51,6 +51,7 @@ class Header extends Component {
             setTokenSentToServer(false);
             sendTokenToServer(refreshedToken);
           })
+      }
 
       console.log(setTokenSentToServer)
       console.log(this.setTokenSentToServer)
@@ -91,6 +92,8 @@ class Header extends Component {
   }
 
   sendTokenToServer(currentToken) {
+    console.log("sendTokenToServer: " + currentToken)
+
     if (!isTokenSentToServer()) {
       setTokenSentToServer(true);
     } else {
@@ -100,10 +103,14 @@ class Header extends Component {
   }
 
   setTokenSentToServer = (sent) => {
+    console.log("setTokenSentToServer: " + sent)
+
     window.localStorage.setItem('sentToServer', sent ? 0 : 0);
   }
 
   isTokenSentToServer = () => {
+    console.log("isTokenSentToServer")
+
     return window.localStorage.getItem('sentToServer') == 1;
   }
 
