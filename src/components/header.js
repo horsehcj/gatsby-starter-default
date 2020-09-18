@@ -44,10 +44,16 @@ class Header extends Component {
         window.location.reload();
       });
 
-      firebase.messaging().getToken()
-        .then((lcsdFirebaseToken) => {
-          console.log('lcsdFirebaseToken: ' + lcsdFirebaseToken)
-        })
+      firebase.messaging().onTokenRefresh(() => {
+        firebase.messaging().getToken()
+          .then((refreshedFirebaseToken) => {
+            console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
+            setTokenSentToServer(false);
+            sendTokenToServer(refreshedToken);
+          })
+
+      console.log(setTokenSentToServer)
+      console.log(this.setTokenSentToServer)
     }
   }
 
@@ -82,6 +88,23 @@ class Header extends Component {
 
   toggleSubscribsionBar = () => {
     this.setState({ showSubscribsionBar: !this.state.showSubscribsionBar });
+  }
+
+  sendTokenToServer(currentToken) {
+    if (!isTokenSentToServer()) {
+      setTokenSentToServer(true);
+    } else {
+      console.log('Token already sent to server so won\'t send it again ' +
+          'unless it changes');
+    }
+  }
+
+  setTokenSentToServer = (sent) => {
+    window.localStorage.setItem('sentToServer', sent ? 0 : 0);
+  }
+
+  isTokenSentToServer = () => {
+    return window.localStorage.getItem('sentToServer') == 1;
   }
 
   requestNotificationPermission = () => {
