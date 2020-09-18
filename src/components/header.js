@@ -43,6 +43,11 @@ class Header extends Component {
       firebase.messaging().onMessage((payload) => {
         window.location.reload();
       });
+
+      firebase.messaging().getToken())
+        .then((lcsdFirebaseToken) => {
+          console.log('lcsdFirebaseToken: ' + lcsdFirebaseToken)
+        })
     }
   }
 
