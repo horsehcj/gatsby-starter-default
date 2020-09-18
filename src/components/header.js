@@ -145,7 +145,7 @@ class Header extends Component {
           console.log(err)
         });
     } else {
-      alert('網站推送只適用係 Chrome, Firefox 或 Edge 17+，請開 browser 後輸入 https://iwanttoplaybadminton.com 再試。')
+      alert('網站推送只適用係電腦及 Android 手機 - Chrome, Firefox 或 Edge 17+，iPhone app 正在研發中。')
     } 
   }
 
