@@ -49,7 +49,7 @@ class Header extends Component {
           .then((refreshedFirebaseToken) => {
             console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
             this.setTokenSentToServer(false);
-            this.sendTokenToServer(refreshedToken);
+            this.sendTokenToServer(refreshedFirebaseToken);
           })
       });
 
@@ -57,7 +57,7 @@ class Header extends Component {
         .then((refreshedFirebaseToken) => {
           console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
           this.setTokenSentToServer(false);
-          this.sendTokenToServer(refreshedToken);
+          this.sendTokenToServer(refreshedFirebaseToken);
         })
     }
   }
