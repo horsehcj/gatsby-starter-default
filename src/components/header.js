@@ -48,13 +48,10 @@ class Header extends Component {
         firebase.messaging().getToken()
           .then((refreshedFirebaseToken) => {
             console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
-            setTokenSentToServer(false);
-            sendTokenToServer(refreshedToken);
+            this.setTokenSentToServer(false);
+            this.sendTokenToServer(refreshedToken);
           })
       });
-
-      console.log(setTokenSentToServer)
-      console.log(this.setTokenSentToServer)
     }
   }
 
@@ -94,8 +91,8 @@ class Header extends Component {
   sendTokenToServer(currentToken) {
     console.log("sendTokenToServer: " + currentToken)
 
-    if (!isTokenSentToServer()) {
-      setTokenSentToServer(true);
+    if (!this.isTokenSentToServer()) {
+      this.setTokenSentToServer(true);
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
           'unless it changes');
