@@ -424,8 +424,8 @@ main {
   padding-top: 100px;
 
   .container {
-    max-width: 960px;
-    margin: 0 auto;
+    margin: 0 25px;
+    display: flex;
   }
 }
 
@@ -436,6 +436,10 @@ main {
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.modules-container {
+  margin: 0 -12.5px;
 }
 
 footer {

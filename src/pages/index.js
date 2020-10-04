@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CancellationStatusTable from "../components/cancellation-status-table"
+import IndexModules from "../components/index-modules"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -10,7 +10,7 @@ const IndexPage = ({data}) => (
       title="顯示被放出嚟嘅康文署羽毛球場嘅網站"
       lang="zh-hk"
     />
-    <CancellationStatusTable cancellations={data.cancellationStatus.cancellations} />
+    <IndexModules cancellations={data.cancellationStatus.cancellations} />
   </Layout>
 )
 

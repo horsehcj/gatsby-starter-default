@@ -1,0 +1,158 @@
+$brand-primary: #0C0344; 
+
+.court-availability-table {
+  padding: 25px 12.5px 40px;
+  flex: 1;
+  max-width: 768px;
+
+  @media only screen and (max-width: 870px) {
+    &.hide {
+      display: none;
+    }
+  }
+
+  .iwtpb-button {
+    background-color: transparent;
+    border: 2px solid $brand-primary;
+    padding: 4px 12px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 4px;
+    color: $brand-primary;
+    margin-bottom: 30px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    display: none;
+
+    @media only screen and (max-width: 870px) {
+      display: inline-block;
+    }
+  }
+
+  .date-selection {
+    .date-button {
+      margin-right: 12px;
+      margin-bottom: 12px;
+      background-color: transparent;
+      border: 2px solid $brand-primary;
+      padding: 4px 12px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      border-radius: 4px;
+
+      &:hover,
+      &.active {
+        background-color: $brand-primary;
+        color: white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .court-availability {
+    .court-row {
+      display: flex;
+
+      &.even {
+        background-color: #f3f3f3;
+      }
+
+      .court-label {
+        flex: 0 0 100px;
+        padding: 2px 0 2px 4px;
+      }
+
+      .court-timeslot {
+        flex-grow: 1;
+        text-align: center;
+        flex: 0 0 calc((100% - 104px)/16);
+        background-color: rgba(204, 255, 204, 0.4);
+        padding: 2px 0;
+
+        &.peak {
+          background-color: rgba(255, 255, 204, 0.4);
+        }
+
+        &.empty {
+          opacity: 0.5;
+          color: #CCC;
+        }
+      }
+
+      &.court-row-header {
+        margin: 20px 0;
+
+        .court-label {
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .court-timeslot {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .filter-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 3, 68, 0.9);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 7;
+    padding: 110px 25px 0;
+    color: white;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .filter-districts-container {
+      margin-bottom: 20px;
+
+      .filter-districts {
+        display: flex;
+
+        .form-group {
+          margin-right: 20px;
+
+          label {
+            &:before {
+              border: 2px solid white;
+            }
+
+            &:after {
+              border: solid white;
+              border-width: 0 2px 2px 0;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      background-color: #ddd;
+      color: $brand-primary;
+      padding: 6px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-top: 24px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

@@ -112,7 +112,7 @@ class Header extends Component {
   }
 
   isTokenSentToServer = () => {
-    return window.localStorage.getItem('sentToServer') == 1;
+    return window.localStorage.getItem('sentToServer') === 1;
   }
 
   requestNotificationPermission = () => {

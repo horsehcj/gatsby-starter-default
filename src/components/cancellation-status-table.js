@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component} from "react"
+import { Link } from "gatsby"
 import "./cancellation-status-table.scss"
 import Moment from 'react-moment';
 import axios from "axios";
@@ -20,9 +21,6 @@ class CancellationStatusDate extends Component {
   }
 
   render() {
-    const d = new Date();
-    const month = ('0'+(d.getMonth()+1)).slice(-2)
-    const day = ('0'+d.getDate()).slice(-2)
     const { todaysCancellations, isFetching } = this.state
 
     function SetDisplayDate(date) {
@@ -154,15 +152,20 @@ class CancellationStatusDate extends Component {
       )
     }
 
+    let tableClass = "cancellation-status-table"
+    if (this.props.displayedmodule === 1) {
+      tableClass+= " hide"
+    }
+
     return (
-      <div className="cancellation-status-table">
-        <p className="intro">康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知，所以如果想第一時間得到最新羽毛球場空缺資訊，記得㩒右上角〝網站推送通知〞，然後㩒〝允許〞或者 "Accept"，你可以選擇收到一個或多個區嘅通知。<br /><span className="red">iPhone 用戶未能使用網站推送功能，請等待即將推出嘅 iPhone app</span><br /><br />康體通網址:<br /><a title="康體通" target="_blank" rel="noreferrer" href="http://w1.leisurelink.lcsd.gov.hk/index/index.jsp">http://w1.leisurelink.lcsd.gov.hk/index/index.jsp</a><br /><a title="康體通" target="_blank" rel="noreferrer" href="http://w2.leisurelink.lcsd.gov.hk/index/index.jsp">http://w2.leisurelink.lcsd.gov.hk/index/index.jsp</a></p>
+      <div className={tableClass}>
+        <p className="intro">康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知，所以如果想第一時間得到最新羽毛球場空缺資訊，記得㩒右上角〝網站推送通知〞，然後㩒〝允許〞或者 "Accept"，你可以選擇收到一個或多個區嘅通知。<br /><span className="red">iPhone 用戶未能使用網站推送功能，請等待即將推出嘅 iPhone app</span><br /><br /><Link className="iwtpb-button" to="/court-availability">未來十日場地狀況 ></Link></p>
 
         { todaysCancellationsDOM }
 
-        { this.props.cancellations.sort(compare1).map((currectDate) => {
+        { this.props.cancellations.sort(compare1).map((currectDate, i) => {
             return (
-              <div key={currectDate.date} className="cancellation-status-current-date">
+              <div key={i} className="cancellation-status-current-date">
                 <div className="cancellation-status-current-date-label">
                   {SetDisplayDate(currectDate.date)}
                 </div>

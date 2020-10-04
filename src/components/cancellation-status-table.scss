@@ -1,18 +1,45 @@
+$brand-primary: #0C0344;
+
 .cancellation-status-table {
   display: flex;
-  max-width: 768px;
-  margin: 20px auto 60px;
+  max-width: 576px;
+  margin: 20px 12.5px 60px;
   flex-direction: column;
 
-  @media only screen and (max-width: 768px) {
-    padding: 0 20px;
+  @media only screen and (max-width: 1080px) {
+    max-width: 400px;
+  }
+
+  @media only screen and (max-width: 870px) {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .iwtpb-button {
+    background-color: transparent;
+    border: 2px solid $brand-primary;
+    padding: 4px 12px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 4px;
+    color: $brand-primary;
+    display: none;
+    font-weight: bold;
+
+    @media only screen and (max-width: 870px) {
+      display: inline-block;
+    }
   }
 
   p {
     margin-top: 0;
 
     &.intro {
-      padding: 0 40px;
       margin-bottom: 40px;
       line-height: 1.8;
 
@@ -20,7 +47,7 @@
         color: red;
       }
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1080px) {
         padding: 0;
       }
     }
@@ -39,7 +66,7 @@
     display: flex;
     justify-content: center;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1080px) {
       flex-direction: column;
     }
 
@@ -49,9 +76,9 @@
       color: #d8d8d8;
       line-height: 1.2;
       padding-right: 40px;
-      width: 125px;
+      width: 90px;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1080px) {
         width: auto;
         text-align: left;
 
@@ -69,7 +96,7 @@
     .cancellation-status-current-times {
       flex: 1;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1080px) {
         margin-right: 0;
       }
 
@@ -82,7 +109,7 @@
           line-height: 1;
           padding-right: 40px;
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: 1080px) {
             font-size: 28px;
             padding-right: 20px;
           }

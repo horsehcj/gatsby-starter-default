@@ -19,12 +19,15 @@
     "gatsby-plugin-sharp": "^2.6.28",
     "gatsby-source-filesystem": "^2.3.25",
     "gatsby-transformer-sharp": "^2.5.13",
+    "moment": "^2.29.0",
+    "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-moment": "^0.9.7",
+    "simple-encryptor": "^4.0.0",
     "tailwindcss": "^1.8.6"
   },
   "devDependencies": {

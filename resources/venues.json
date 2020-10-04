@@ -1,7 +1,7 @@
 {
    "19":{
       "name":{
-         "TC":"大埔體育館",
+         "TC":"大埔",
          "EN":"Tai Po Sports Centre"
       },
       "region":"NTE",
@@ -9,7 +9,7 @@
    },
    "23":{
       "name":{
-         "TC":"林士德體育館",
+         "TC":"林士德",
          "EN":"Osman Ramju Sadick Memorial Sports Centre"
       },
       "district":"KWT",
@@ -17,7 +17,7 @@
    },
    "25":{
       "name":{
-         "TC":"賽馬會屯門蝴蝶灣體育館",
+         "TC":"屯門蝴蝶灣",
          "EN":"JC Tuen Mun Butterfly Beach Sports Centre"
       },
       "region":"NTW",
@@ -25,7 +25,7 @@
    },
    "26":{
       "name":{
-         "TC":"友愛體育館",
+         "TC":"友愛",
          "EN":"Yau Oi Sports Centre"
       },
       "region":"NTW",
@@ -33,7 +33,7 @@
    },
    "35":{
       "name":{
-         "TC":"北葵涌鄧肇堅體育館",
+         "TC":"北葵涌鄧肇堅",
          "EN":"North Kwai Chung Tang Shiu Kin Sports Centre"
       },
       "district":"KWT",
@@ -41,7 +41,7 @@
    },
    "36":{
       "name":{
-         "TC":"長發體育館",
+         "TC":"長發",
          "EN":"Cheung Fat Sports Centre"
       },
       "district":"KWT",
@@ -49,7 +49,7 @@
    },
    "37":{
       "name":{
-         "TC":"楓樹窩體育館",
+         "TC":"楓樹窩",
          "EN":"Fung Shue Wo Sports Centre"
       },
       "district":"KWT",
@@ -57,7 +57,7 @@
    },
    "38":{
       "name":{
-         "TC":"大窩口體育館",
+         "TC":"大窩口",
          "EN":"Tai Wo Hau Sports Centre"
       },
       "district":"KWT",
@@ -65,7 +65,7 @@
    },
    "40":{
       "name":{
-         "TC":"青衣體育館",
+         "TC":"青衣",
          "EN":"Tsing Yi Sports Centre"
       },
       "district":"KWT",
@@ -73,7 +73,7 @@
    },
    "42":{
       "name":{
-         "TC":"蕙荃體育館",
+         "TC":"蕙荃",
          "EN":"Wai Tsuen Sports Centre"
       },
       "region":"NTW",
@@ -81,7 +81,7 @@
    },
    "43":{
       "name":{
-         "TC":"荃景圍體育館",
+         "TC":"荃景圍",
          "EN":"Tsuen King Circuit Sports Centre"
       },
       "region":"NTW",
@@ -89,7 +89,7 @@
    },
    "49":{
       "name":{
-         "TC":"天平體育館",
+         "TC":"天平",
          "EN":"Tin Ping Sports Centre"
       },
       "district":"N",
@@ -97,7 +97,7 @@
    },
    "53":{
       "name":{
-         "TC":"龍琛路體育館",
+         "TC":"龍琛路",
          "EN":"Lung Sum Avenue Sports Centre"
       },
       "district":"N",
@@ -105,7 +105,7 @@
    },
    "54":{
       "name":{
-         "TC":"和興體育館",
+         "TC":"和興",
          "EN":"Wo Hing Sports Centre"
       },
       "district":"N",
@@ -113,7 +113,7 @@
    },
    "55":{
       "name":{
-         "TC":"富善體育館",
+         "TC":"富善",
          "EN":"Fu Shin Sports Centre"
       },
       "region":"NTE",
@@ -121,7 +121,7 @@
    },
    "56":{
       "name":{
-         "TC":"太和體育館",
+         "TC":"太和",
          "EN":"Tai Wo Sports Centre"
       },
       "region":"NTE",
@@ -129,7 +129,7 @@
    },
    "57":{
       "name":{
-         "TC":"富亨體育館",
+         "TC":"富亨",
          "EN":"Fu Heng Sports Centre"
       },
       "region":"NTE",
@@ -137,7 +137,7 @@
    },
    "60":{
       "name":{
-         "TC":"寶林體育館",
+         "TC":"寶林",
          "EN":"Po Lam Sports Centre"
       },
       "region":"NTE",
@@ -145,7 +145,7 @@
    },
    "61":{
       "name":{
-         "TC":"翠林體育館",
+         "TC":"翠林",
          "EN":"Tsui Lam Sports Centre"
       },
       "region":"NTE",
@@ -153,7 +153,7 @@
    },
    "66":{
       "name":{
-         "TC":"荔景體育館",
+         "TC":"荔景",
          "EN":"Lai King Sports Centre"
       },
       "district":"KWT",
@@ -161,7 +161,7 @@
    },
    "67":{
       "name":{
-         "TC":"恆安體育館",
+         "TC":"恆安",
          "EN":"Heng On Sports Centre"
       },
       "region":"NTE",
@@ -169,7 +169,7 @@
    },
    "69":{
       "name":{
-         "TC":"顯徑體育館",
+         "TC":"顯徑",
          "EN":"Hin Keng Sports Centre"
       },
       "region":"NTE",
@@ -177,7 +177,7 @@
    },
    "72":{
       "name":{
-         "TC":"大興體育館",
+         "TC":"大興",
          "EN":"Tai Hing Sports Centre"
       },
       "region":"NTW",
@@ -185,7 +185,7 @@
    },
    "73":{
       "name":{
-         "TC":"良田體育館",
+         "TC":"良田",
          "EN":"Leung Tin Sports Centre"
       },
       "region":"NTW",
@@ -193,7 +193,7 @@
    },
    "76":{
       "name":{
-         "TC":"鳳琴街體育館",
+         "TC":"鳳琴街",
          "EN":"Fung Kam Street Sports Centre"
       },
       "region":"NTW",
@@ -201,7 +201,7 @@
    },
    "77":{
       "name":{
-         "TC":"朗屏體育館",
+         "TC":"朗屏",
          "EN":"Long Ping Sports Centre"
       },
       "region":"NTW",
@@ -209,7 +209,7 @@
    },
    "82":{
       "name":{
-         "TC":"海傍街體育館",
+         "TC":"海傍街",
          "EN":"Praya Street Sports Centre"
       },
       "district":"IS",
@@ -217,7 +217,7 @@
    },
    "83":{
       "name":{
-         "TC":"坪洲體育館",
+         "TC":"坪洲",
          "EN":"Peng Chau Sports Centre"
       },
       "district":"IS",
@@ -225,7 +225,7 @@
    },
    "84":{
       "name":{
-         "TC":"長洲體育館",
+         "TC":"長洲",
          "EN":"Cheung Chau Sports Centre"
       },
       "district":"IS",
@@ -233,7 +233,7 @@
    },
    "85":{
       "name":{
-         "TC":"梅窩體育館",
+         "TC":"梅窩",
          "EN":"Mui Wo Sports Centre"
       },
       "district":"IS",
@@ -241,7 +241,7 @@
    },
    "87":{
       "name":{
-         "TC":"天水圍體育館",
+         "TC":"天水圍",
          "EN":"Tin Shui Wai Sports Centre"
       },
       "region":"NTW",
@@ -249,7 +249,7 @@
    },
    "91":{
       "name":{
-         "TC":"美林體育館",
+         "TC":"美林",
          "EN":"Mei Lam Sports Centre"
       },
       "region":"NTE",
@@ -257,7 +257,7 @@
    },
    "92":{
       "name":{
-         "TC":"源禾路體育館",
+         "TC":"源禾路",
          "EN":"Yuen Wo Road Sports Centre"
       },
       "region":"NTE",
@@ -265,7 +265,7 @@
    },
    "94":{
       "name":{
-         "TC":"將軍澳體育館",
+         "TC":"將軍澳",
          "EN":"Tseung Kwan O Sports Centre"
       },
       "region":"NTE",
@@ -273,7 +273,7 @@
    },
    "95":{
       "name":{
-         "TC":"楊屋道體育館",
+         "TC":"楊屋道",
          "EN":"Yeung Uk Road Sports Centre"
       },
       "region":"NTW",
@@ -281,7 +281,7 @@
    },
    "96":{
       "name":{
-         "TC":"荃灣西約體育館",
+         "TC":"荃灣西約",
          "EN":"Tsuen Wan West Sports Centre"
       },
       "region":"NTW",
@@ -289,7 +289,7 @@
    },
    "200":{
       "name":{
-         "TC":"鴨脷洲體育館",
+         "TC":"鴨脷洲",
          "EN":"Ap Lei Chau Sports Centre"
       },
       "region":"HK",
@@ -297,7 +297,7 @@
    },
    "204":{
       "name":{
-         "TC":"香港公園體育館",
+         "TC":"香港公園",
          "EN":"Hong Kong Park Sports Centre"
       },
       "district":"CW",
@@ -305,7 +305,7 @@
    },
    "206":{
       "name":{
-         "TC":"士美非路體育館",
+         "TC":"士美非路",
          "EN":"Smithfield Sports Centre"
       },
       "district":"CW",
@@ -313,7 +313,7 @@
    },
    "207":{
       "name":{
-         "TC":"石塘咀體育館",
+         "TC":"石塘咀",
          "EN":"Shek Tong Tsui Sports Centre"
       },
       "district":"CW",
@@ -321,7 +321,7 @@
    },
    "208":{
       "name":{
-         "TC":"上環體育館",
+         "TC":"上環",
          "EN":"Sheung Wan Sports Centre"
       },
       "district":"CW",
@@ -329,7 +329,7 @@
    },
    "209":{
       "name":{
-         "TC":"中山紀念公園體育館",
+         "TC":"中山紀念公園",
          "EN":"Sun Yat Sen Memorial Park Sports Centre"
       },
       "district":"CW",
@@ -337,7 +337,7 @@
    },
    "212":{
       "name":{
-         "TC":"柴灣體育館",
+         "TC":"柴灣",
          "EN":"Chai Wan Sports Centre"
       },
       "district":"EN",
@@ -345,7 +345,7 @@
    },
    "213":{
       "name":{
-         "TC":"渣華道體育館",
+         "TC":"渣華道",
          "EN":"Java Road Sports Centre"
       },
       "district":"EN",
@@ -353,7 +353,7 @@
    },
    "214":{
       "name":{
-         "TC":"鰂魚涌體育館",
+         "TC":"鰂魚涌",
          "EN":"Quarry Bay Sports Centre"
       },
       "district":"EN",
@@ -361,7 +361,7 @@
    },
    "217":{
       "name":{
-         "TC":"港島東體育館",
+         "TC":"港島東",
          "EN":"Island East Sports Centre"
       },
       "district":"EN",
@@ -369,7 +369,7 @@
    },
    "219":{
       "name":{
-         "TC":"西灣河體育館",
+         "TC":"西灣河",
          "EN":"Sai Wan Ho Sports Centre"
       },
       "district":"EN",
@@ -377,14 +377,15 @@
    },
    "223":{
       "name":{
-         "TC":"佛光街體育館",
+         "TC":"佛光街",
          "EN":"Fat Kwong Street Sports Centre"
       },
-      "district":"KC"
+      "district":"KC",
+      "region":"KLN"
    },
    "224":{
       "name":{
-         "TC":"紅磡市政大廈體育館",
+         "TC":"紅磡市政大廈",
          "EN":"Hung Hom Municipal Services Building Sports Centre"
       },
       "district":"KC",
@@ -392,7 +393,7 @@
    },
    "228":{
       "name":{
-         "TC":"九龍城體育館",
+         "TC":"九龍城",
          "EN":"Kowloon City Sports Centre"
       },
       "district":"KC",
@@ -400,7 +401,7 @@
    },
    "233":{
       "name":{
-         "TC":"土瓜灣體育館",
+         "TC":"土瓜灣",
          "EN":"To Kwa Wan Sports Centre"
       },
       "district":"KC",
@@ -408,7 +409,7 @@
    },
    "239":{
       "name":{
-         "TC":"界限街體育館 - 主場 (一號館)",
+         "TC":"界限街一號館",
          "EN":"Boundary Street Sports Centre - Arena (Centre 1)"
       },
       "region":"KLN",
@@ -416,7 +417,7 @@
    },
    "240":{
       "name":{
-         "TC":"界限街體育館 - 主場 (二號館)",
+         "TC":"界限街二號館",
          "EN":"Boundary Street Sports Centre - Arena (Centre 2)"
       },
       "region":"KLN",
@@ -424,7 +425,7 @@
    },
    "241":{
       "name":{
-         "TC":"花園街體育館",
+         "TC":"花園街",
          "EN":"Fa Yuen Street Sports Centre"
       },
       "region":"KLN",
@@ -432,7 +433,7 @@
    },
    "244":{
       "name":{
-         "TC":"彩虹道羽毛球中心",
+         "TC":"彩虹道中心",
          "EN":"Choi Hung Road Badminton Centre"
       },
       "region":"KLN",
@@ -440,7 +441,7 @@
    },
    "245":{
       "name":{
-         "TC":"彩虹道體育館",
+         "TC":"彩虹道",
          "EN":"Choi Hung Road Sports Centre"
       },
       "region":"KLN",
@@ -448,7 +449,7 @@
    },
    "246":{
       "name":{
-         "TC":"竹園體育館",
+         "TC":"竹園",
          "EN":"Chuk Yuen Sports Centre"
       },
       "region":"KLN",
@@ -456,7 +457,7 @@
    },
    "248":{
       "name":{
-         "TC":"東啟德體育館",
+         "TC":"東啟德",
          "EN":"Kai Tak East Sports Centre"
       },
       "region":"KLN",
@@ -464,7 +465,7 @@
    },
    "254":{
       "name":{
-         "TC":"摩士公園體育館",
+         "TC":"摩士公園",
          "EN":"Morse Park Sports Centre"
       },
       "region":"KLN",
@@ -472,7 +473,7 @@
    },
    "256":{
       "name":{
-         "TC":"牛池灣體育館",
+         "TC":"牛池灣",
          "EN":"Ngau Chi Wan Sports Centre"
       },
       "region":"KLN",
@@ -480,7 +481,7 @@
    },
    "257":{
       "name":{
-         "TC":"蒲崗村道體育館",
+         "TC":"蒲崗村道",
          "EN":"Po Kong Village Road Sports Centre"
       },
       "region":"KLN",
@@ -488,7 +489,7 @@
    },
    "259":{
       "name":{
-         "TC":"長沙灣體育館",
+         "TC":"長沙灣",
          "EN":"Cheung Sha Wan Sports Centre"
       },
       "region":"KLN",
@@ -496,7 +497,7 @@
    },
    "261":{
       "name":{
-         "TC":"荔枝角公園體育館",
+         "TC":"荔枝角公園",
          "EN":"Lai Chi Kok Park Sports Centre"
       },
       "region":"KLN",
@@ -504,7 +505,7 @@
    },
    "263":{
       "name":{
-         "TC":"北河街體育館",
+         "TC":"北河街",
          "EN":"Pei Ho Street Sports Centre"
       },
       "region":"KLN",
@@ -512,7 +513,7 @@
    },
    "264":{
       "name":{
-         "TC":"保安道體育館",
+         "TC":"保安道",
          "EN":"Po On Road Sports Centre"
       },
       "region":"KLN",
@@ -520,7 +521,7 @@
    },
    "266":{
       "name":{
-         "TC":"石硤尾公園體育館",
+         "TC":"石硤尾公園",
          "EN":"Shek Kip Mei Park Sports Centre"
       },
       "region":"KLN",
@@ -528,7 +529,7 @@
    },
    "273":{
       "name":{
-         "TC":"黃竹坑體育館",
+         "TC":"黃竹坑",
          "EN":"Wong Chuk Hang Sports Centre"
       },
       "region":"HK",
@@ -536,7 +537,7 @@
    },
    "274":{
       "name":{
-         "TC":"香港仔體育館",
+         "TC":"香港仔",
          "EN":"Aberdeen Sports Centre"
       },
       "region":"HK",
@@ -544,7 +545,7 @@
    },
    "278":{
       "name":{
-         "TC":"漁光道體育館",
+         "TC":"漁光道",
          "EN":"Yue Kwong Road Sports Centre"
       },
       "region":"HK",
@@ -552,7 +553,7 @@
    },
    "279":{
       "name":{
-         "TC":"振華道體育館",
+         "TC":"振華道",
          "EN":"Chun Wah Road Sports Centre"
       },
       "region":"KLN",
@@ -560,7 +561,7 @@
    },
    "281":{
       "name":{
-         "TC":"曉光街體育館",
+         "TC":"曉光街",
          "EN":"Hiu Kwong Street Sports Centre"
       },
       "region":"KLN",
@@ -568,7 +569,7 @@
    },
    "284":{
       "name":{
-         "TC":"九龍灣體育館",
+         "TC":"九龍灣",
          "EN":"Kowloon Bay Sports Centre"
       },
       "region":"KLN",
@@ -576,7 +577,7 @@
    },
    "287":{
       "name":{
-         "TC":"藍田南體育館",
+         "TC":"藍田南",
          "EN":"Lam Tin South Sports Centre"
       },
       "region":"KLN",
@@ -584,7 +585,7 @@
    },
    "288":{
       "name":{
-         "TC":"牛頭角道體育館",
+         "TC":"牛頭角道",
          "EN":"Ngau Tau Kok Road Sports Centre"
       },
       "region":"KLN",
@@ -592,7 +593,7 @@
    },
    "291":{
       "name":{
-         "TC":"鯉魚門體育館",
+         "TC":"鯉魚門",
          "EN":"Lei Yue Mun Sports Centre"
       },
       "region":"KLN",
@@ -600,7 +601,7 @@
    },
    "292":{
       "name":{
-         "TC":"順利邨體育館",
+         "TC":"順利邨",
          "EN":"Shun Lee Tsuen Sports Centre"
       },
       "region":"KLN",
@@ -608,7 +609,7 @@
    },
    "293":{
       "name":{
-         "TC":"瑞和街體育館",
+         "TC":"瑞和街",
          "EN":"Shui Wo Street Sports Centre"
       },
       "region":"KLN",
@@ -616,7 +617,7 @@
    },
    "300":{
       "name":{
-         "TC":"港灣道體育館",
+         "TC":"港灣道",
          "EN":"Harbour Road Sports Centre"
       },
       "region":"HK",
@@ -624,7 +625,7 @@
    },
    "302":{
       "name":{
-         "TC":"駱克道體育館",
+         "TC":"駱克道",
          "EN":"Lockhart Road Sports Centre"
       },
       "region":"HK",
@@ -632,7 +633,7 @@
    },
    "303":{
       "name":{
-         "TC":"伊利沙伯體育館",
+         "TC":"伊利沙伯",
          "EN":"Queen Elizabeth Stadium"
       },
       "region":"HK",
@@ -640,7 +641,7 @@
    },
    "304":{
       "name":{
-         "TC":"黃泥涌體育館",
+         "TC":"黃泥涌",
          "EN":"Wong Nai Chung Sports Centre"
       },
       "region":"HK",
@@ -648,7 +649,7 @@
    },
    "305":{
       "name":{
-         "TC":"官涌體育館",
+         "TC":"官涌",
          "EN":"Kwun Chung Sports Centre"
       },
       "region":"KLN",
@@ -656,7 +657,7 @@
    },
    "307":{
       "name":{
-         "TC":"九龍公園體育館",
+         "TC":"九龍公園",
          "EN":"Kowloon Park Sports Centre"
       },
       "region":"KLN",
@@ -664,7 +665,7 @@
    },
    "50000512":{
       "name":{
-         "TC":"大埔墟體育館",
+         "TC":"大埔墟",
          "EN":"Tai Po Hui Sports Centre"
       },
       "region":"NTE",
@@ -672,7 +673,7 @@
    },
    "60000514":{
       "name":{
-         "TC":"馬鞍山體育館",
+         "TC":"馬鞍山",
          "EN":"Ma On Shan Sports Centre"
       },
       "region":"NTE",
@@ -680,7 +681,7 @@
    },
    "70000521":{
       "name":{
-         "TC":"大角咀體育館",
+         "TC":"大角咀",
          "EN":"Tai Kok Tsui Sports Centre"
       },
       "region":"KLN",
@@ -688,7 +689,7 @@
    },
    "70000522":{
       "name":{
-         "TC":"赤柱體育館",
+         "TC":"赤柱",
          "EN":"Stanley Sports Centre"
       },
       "region":"HK",
@@ -696,7 +697,7 @@
    },
    "70000525":{
       "name":{
-         "TC":"天瑞體育館",
+         "TC":"天瑞",
          "EN":"Tin Shui Sports Centre"
       },
       "region":"NTW",
@@ -704,7 +705,7 @@
    },
    "70000623":{
       "name":{
-         "TC":"東涌文東路體育館",
+         "TC":"東涌文東路",
          "EN":"Tung Chung Man Tung Road Sports Centre"
       },
       "district":"IS",
@@ -712,7 +713,7 @@
    },
    "70000727":{
       "name":{
-         "TC":"小西灣體育館",
+         "TC":"小西灣",
          "EN":"Siu Sai Wan Sports Centre"
       },
       "district":"EN",
@@ -720,7 +721,7 @@
    },
    "70000734":{
       "name":{
-         "TC":"坑口體育館",
+         "TC":"坑口",
          "EN":"Hang Hau Sports Centre"
       },
       "region":"NTE",
@@ -728,7 +729,7 @@
    },
    "70000830":{
       "name":{
-         "TC":"保榮路體育館",
+         "TC":"保榮路",
          "EN":"Po Wing Road Sports Centre"
       },
       "district":"N",
@@ -736,7 +737,7 @@
    },
    "70000831":{
       "name":{
-         "TC":"屏山天水圍體育館",
+         "TC":"屏山天水圍",
          "EN":"Ping Shan Tin Shui Wai Sports Centre"
       },
       "region":"NTW",
@@ -744,7 +745,7 @@
    },
    "70000931":{
       "name":{
-         "TC":"天暉路體育館",
+         "TC":"天暉路",
          "EN":"Tin Fai Road Sports Centre"
       },
       "region":"NTW",
@@ -760,7 +761,7 @@
    },
    "70001333":{
       "name":{
-         "TC":"調景嶺體育館",
+         "TC":"調景嶺",
          "EN":"Tiu Keng Leng Sports Centre"
       },
       "region":"NTE",
@@ -768,7 +769,7 @@
    },
    "70001533":{
       "name":{
-         "TC":"圓洲角體育館",
+         "TC":"圓洲角",
          "EN":"Yuen Chau Kok Sports Centre"
       },
       "region":"NTE",
@@ -776,7 +777,7 @@
    },
    "70001534":{
       "name":{
-         "TC":"元朗體育館",
+         "TC":"元朗",
          "EN":"Yuen Long Sports Centre"
       },
       "region":"NTW",
@@ -784,7 +785,7 @@
    },
    "70001535":{
       "name":{
-         "TC":"青衣西南體育館",
+         "TC":"青衣西南",
          "EN":"Tsing Yi Southwest Sports Centre"
       },
       "district":"KWT",
@@ -792,7 +793,7 @@
    },
    "70001733":{
       "name":{
-         "TC":"荃灣體育館 - 主場 (2 樓)",
+         "TC":"荃灣 - 主場",
          "EN":"Tsuen Wan Sports Centre - Arena (2/F)"
       },
       "region":"NTW",
@@ -800,10 +801,26 @@
    },
    "70001734":{
       "name":{
-         "TC":"荃灣體育館 - 副場 (地下)",
+         "TC":"荃灣 - 副場",
          "EN":"Tsuen Wan Sports Centre - Secondary Hall (G/F)"
       },
       "region":"NTW",
       "district":"TW"
+   },
+   "70001833":{
+      "name":{
+         "TC":"圓洲角",
+         "EN":"Yuen Chau Kok Sports Centre"
+      },
+      "region":"NTE",
+      "district":"ST"
+   },
+   "70001933":{
+      "name":{
+         "TC":"車公廟",
+         "EN":"Che Kung Temple Sports Centre"
+      },
+      "region":"NTE",
+      "district":"ST"
    }
 }
