@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
 import "./realtime-availability.scss"
 import Moment from 'react-moment';
 import axios from "axios";
@@ -224,7 +223,7 @@ class ReadtimeAvailability extends Component {
                 { Object.keys(filteredCourtAvailabilityObj[court]).map((no) => {
                   let timeslotClass = "court-timeslot"
 
-                  if (no > 10) {
+                  if (no > 10 || moment(seletectedDate, 'YYYYMMDD').format('d') === '6' || moment(seletectedDate, 'YYYYMMDD').format('d') === '0') {
                     timeslotClass += " peak"
                   }
 

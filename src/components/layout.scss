@@ -430,6 +430,10 @@ main {
   .container {
     margin: 0 25px;
     display: flex;
+
+    @media only screen and (max-width: 870px) {
+      margin: 0 15px;
+    }
   }
 }
 
@@ -446,7 +450,7 @@ main {
   margin: 0 -12.5px;
 
   @media only screen and (max-width: 870px) {
-    margin: 0 -25px;
+    margin: 0 -15px;
   }
 }
 
