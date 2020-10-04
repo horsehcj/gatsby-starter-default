@@ -167,11 +167,11 @@ p {
     opacity: 0;
     transition: all 0.3s ease-in-out;
     z-index: 7;
-    padding: 40px 25px 0;
+    padding: 50px 25px 0;
     color: white;
 
     @media only screen and (max-width: 870px) {
-      padding: 40px 15px 0;
+      padding: 50px 15px 0;
 
       h2 {
         font-size: 18px;
