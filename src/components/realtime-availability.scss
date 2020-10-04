@@ -170,6 +170,14 @@ p {
     padding: 40px 25px 0;
     color: white;
 
+    @media only screen and (max-width: 870px) {
+      padding: 40px 15px 0;
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+
     &.active {
       opacity: 1;
       pointer-events: auto;
@@ -183,6 +191,10 @@ p {
         .form-group {
           margin-right: 20px;
           margin-bottom: 20px;
+
+          @media only screen and (max-width: 870px) {
+            margin-bottom: 14px;
+          }
 
           label {
             &:before {
@@ -207,6 +219,10 @@ p {
       border-radius: 4px;
       font-weight: bold;
       margin-top: 24px;
+
+      @media only screen and (max-width: 870px) {
+        margin-top: 16px;
+      }
 
       &:focus {
         outline: none;
