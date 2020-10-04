@@ -35,6 +35,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
     const hongkongDate = new Date(hongkongTimeStamp)
 
     for (const currentDate in content) {
+
       if (currentDate !== hongkongDate.getFullYear() + ('0'+(hongkongDate.getMonth()+1)).slice(-2) + ('0'+hongkongDate.getDate()).slice(-2) ) {
         // reset
         currentDateObj = {}
@@ -76,9 +77,9 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
           timeObj['dates'] = datesArr
           currentDateObj['times'].push(timeObj)
         }
-      }
 
-      cancellations_data.push(currentDateObj)
+        cancellations_data.push(currentDateObj)
+      }
     }
 
     const nodeId = createNodeId(`iwanttoplaybadminton`)
