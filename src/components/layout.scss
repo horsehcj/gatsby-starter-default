@@ -423,6 +423,10 @@ a:hover {
 main {
   padding-top: 100px;
 
+  @media only screen and (max-width: 870px) {
+    padding-top: 57px;
+  }
+
   .container {
     margin: 0 25px;
     display: flex;
@@ -440,10 +444,18 @@ main {
 
 .modules-container {
   margin: 0 -12.5px;
+
+  @media only screen and (max-width: 870px) {
+    margin: 0 -25px;
+  }
 }
 
 footer {
-  padding: 15px;
+  padding: 15px 25px;
+
+  @media only screen and (max-width: 870px) {
+    padding: 15px;
+  }
 
   a {
     color: #666;

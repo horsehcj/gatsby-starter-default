@@ -6,6 +6,8 @@ $brand-primary: #0C0344;
   max-width: 768px;
 
   @media only screen and (max-width: 870px) {
+    padding: 0 0 40px;
+
     &.hide {
       display: none;
     }
@@ -31,6 +33,21 @@ $brand-primary: #0C0344;
   }
 
   .date-selection {
+    @media only screen and (max-width: 870px) {
+      display: flex;
+      max-width: 100vw;
+      overflow: scroll;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+      position: sticky;
+      top: 57px;
+      z-index: 4;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     .date-button {
       margin-right: 12px;
       margin-bottom: 12px;
@@ -40,6 +57,20 @@ $brand-primary: #0C0344;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
       border-radius: 4px;
+
+      @media only screen and (max-width: 870px) {
+        border: none;
+        border-right: 2px solid $brand-primary;
+        border-radius: 0;
+        margin-right: 0;
+        background-color: white;
+        font-size: 12px;
+        padding: 4px 10px 6px;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
 
       &:hover,
       &.active {
@@ -62,16 +93,26 @@ $brand-primary: #0C0344;
       }
 
       .court-label {
-        flex: 0 0 100px;
+        flex: 0 0 95px;
         padding: 2px 0 2px 4px;
+
+        @media only screen and (max-width: 870px) {
+          flex: 0 0 82px;
+          font-size: 12px;
+        }
       }
 
       .court-timeslot {
         flex-grow: 1;
         text-align: center;
-        flex: 0 0 calc((100% - 104px)/16);
+        flex: 0 0 calc((100% - 99px)/16);
         background-color: rgba(204, 255, 204, 0.4);
         padding: 2px 0;
+
+        @media only screen and (max-width: 870px) {
+          flex: 0 0 calc((100% - 86px)/16);
+          font-size: 12px;
+        }
 
         &.peak {
           background-color: rgba(255, 255, 204, 0.4);

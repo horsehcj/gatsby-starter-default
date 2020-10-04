@@ -322,7 +322,6 @@ class ReadtimeAvailability extends Component {
 
     return (
       <div className={tableClass}>
-        <Link className="iwtpb-button" to="/">返回主頁</Link>
         {dateBtnsDom}
         {courtAvailabilityDom}
         {filterDom}
