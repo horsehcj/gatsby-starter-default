@@ -14,7 +14,6 @@ $brand-primary: #0C0344;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-size: 12px;
 
     &.hide {
       display: none;
@@ -31,6 +30,7 @@ $brand-primary: #0C0344;
     color: $brand-primary;
     display: none;
     font-weight: bold;
+    margin-top: 20px;
 
     @media only screen and (max-width: 870px) {
       display: inline-block;

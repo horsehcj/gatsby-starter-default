@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `顯示被放出嚟嘅康文署羽毛球場嘅網站`,
+    title: `康文署羽毛球放場通知`,
     description: `康民署嘅羽毛球場館好多時都有唔同原因放番出嚟，例如活動取消，又或者原定嘅活動順利舉行，本身預留嘅場地會提供番俾市民預訂等等。呢個網頁會監察著康體通有冇突然放番啲場出嚟，然後以最快速度話俾大家知。`,
     author: `@iwanttoplaybadminton`,
   },

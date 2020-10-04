@@ -7,7 +7,7 @@ import RealtimeAvailability from "../components/realtime-availability"
 const IndexPage = ({data}) => (
   <Layout>
     <SEO
-      title="康文署羽毛球場"
+      title="康文署羽毛球放場通知"
       lang="zh-hk"
     />
     <div className="modules-container">

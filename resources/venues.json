@@ -33,7 +33,7 @@
    },
    "35":{
       "name":{
-         "TC":"北葵涌鄧肇堅",
+         "TC":"北葵鄧肇堅",
          "EN":"North Kwai Chung Tang Shiu Kin Sports Centre"
       },
       "district":"KWT",
@@ -385,7 +385,7 @@
    },
    "224":{
       "name":{
-         "TC":"紅磡市政大廈",
+         "TC":"紅磡市政",
          "EN":"Hung Hom Municipal Services Building Sports Centre"
       },
       "district":"KC",
@@ -409,7 +409,7 @@
    },
    "239":{
       "name":{
-         "TC":"界限街一號館",
+         "TC":"界限街一館",
          "EN":"Boundary Street Sports Centre - Arena (Centre 1)"
       },
       "region":"KLN",
@@ -417,7 +417,7 @@
    },
    "240":{
       "name":{
-         "TC":"界限街二號館",
+         "TC":"界限街二館",
          "EN":"Boundary Street Sports Centre - Arena (Centre 2)"
       },
       "region":"KLN",

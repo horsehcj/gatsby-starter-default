@@ -1,4 +1,10 @@
-$brand-primary: #0C0344; 
+$brand-primary: #0C0344;
+
+p {
+  &.loading {
+    padding-left: 15px;
+  }
+}
 
 .court-availability-table {
   padding: 25px 12.5px 40px;
@@ -6,7 +12,7 @@ $brand-primary: #0C0344;
   max-width: 768px;
 
   @media only screen and (max-width: 870px) {
-    padding: 0 0 40px;
+    padding: 0;
 
     &.hide {
       display: none;
@@ -66,6 +72,7 @@ $brand-primary: #0C0344;
         background-color: white;
         font-size: 12px;
         padding: 4px 10px 6px;
+        margin-bottom: 0;
 
         &:last-child {
           border-right: none;
@@ -97,7 +104,7 @@ $brand-primary: #0C0344;
         padding: 2px 0 2px 4px;
 
         @media only screen and (max-width: 870px) {
-          flex: 0 0 82px;
+          flex: 0 0 72px;
           font-size: 12px;
         }
       }
@@ -110,7 +117,7 @@ $brand-primary: #0C0344;
         padding: 2px 0;
 
         @media only screen and (max-width: 870px) {
-          flex: 0 0 calc((100% - 86px)/16);
+          flex: 0 0 calc((100% - 76px)/16);
           font-size: 12px;
         }
 
@@ -126,6 +133,16 @@ $brand-primary: #0C0344;
 
       &.court-row-header {
         margin: 20px 0;
+
+        @media only screen and (max-width: 870px) {
+          margin: 0;
+          background-color: white;
+          position: sticky;
+          top: 93px;
+          z-index: 6;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+        }
 
         .court-label {
           font-weight: bold;
@@ -150,7 +167,7 @@ $brand-primary: #0C0344;
     opacity: 0;
     transition: all 0.3s ease-in-out;
     z-index: 7;
-    padding: 110px 25px 0;
+    padding: 40px 25px 0;
     color: white;
 
     &.active {
@@ -159,13 +176,13 @@ $brand-primary: #0C0344;
     }
 
     .filter-districts-container {
-      margin-bottom: 20px;
-
       .filter-districts {
         display: flex;
+        flex-wrap: wrap;
 
         .form-group {
           margin-right: 20px;
+          margin-bottom: 20px;
 
           label {
             &:before {

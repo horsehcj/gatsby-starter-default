@@ -38,6 +38,8 @@ class ReadtimeAvailability extends Component {
     if (cf) {
       this.setState({ area: JSON.parse(cf) });
     }
+
+    document.getElementById('date-selection').scrollLeft = document.getElementById('date-selection').scrollWidth;
   }
 
   state = {
@@ -168,7 +170,7 @@ class ReadtimeAvailability extends Component {
     }
 
     dateBtnsDom = (
-      <div className="date-selection">
+      <div id="date-selection" className="date-selection">
         {dateBtnDom}
       </div>
     )
@@ -222,7 +224,7 @@ class ReadtimeAvailability extends Component {
                 { Object.keys(filteredCourtAvailabilityObj[court]).map((no) => {
                   let timeslotClass = "court-timeslot"
 
-                  if (no < 11) {
+                  if (no > 10) {
                     timeslotClass += " peak"
                   }
 
@@ -312,7 +314,7 @@ class ReadtimeAvailability extends Component {
         </div>
       )
     } else {
-      courtAvailabilityDom = <p>Loading...</p>
+      courtAvailabilityDom = <p className="loading">Loading...</p>
     }
 
     let tableClass = "court-availability-table"

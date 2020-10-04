@@ -5,7 +5,7 @@ header {
   background-color: $background-color;
   color: white;
   height: $header-height;
-  padding: 0 20px;
+  padding: 0 25px;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,6 +14,10 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: 870px) {
+    padding: 0 15px;
+  }
 
   h1 {
     font-size: 18px;
@@ -26,8 +30,14 @@ header {
     overflow: hidden;
     text-overflow: ellipsis;
 
-    @media only screen and (max-width: 768px) {
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width: 870px) {
       padding-left: 0;
+      font-size: 14px;
     }
 
     img {
@@ -36,7 +46,7 @@ header {
       left: 0;
       top: 0;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 870px) {
         display: none;
       }
     }
@@ -50,9 +60,12 @@ header {
     padding: 0 20px;
     border-radius: 4px;
     cursor: pointer;
-    width: 158px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     position: relative;
+
+    @media only screen and (max-width: 870px) {
+      padding: 0 12px;
+    }
 
     &:focus {
       outline: none;
@@ -158,7 +171,7 @@ header {
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 870px) {
     flex-direction: column;
     padding-bottom: 15px;
 

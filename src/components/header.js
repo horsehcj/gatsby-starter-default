@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "gatsby"
 import Logo from "../images/i-want-to-book-court.png";
 import "./header.scss"
 import firebase from "gatsby-plugin-firebase"
@@ -159,7 +160,7 @@ class Header extends Component {
         <header>
           <h1>
             <img src={Logo} alt="" />
-            {siteTitle}
+            <Link to="/">{siteTitle}</Link>
           </h1>
 
           <button className={alreadySubscribe? '': 'non-register'} onClick={this.toggleSubscribsionBar}>

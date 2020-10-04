@@ -7,7 +7,7 @@ import IndexModules from "../components/index-modules"
 const IndexPage = ({data}) => (
   <Layout>
     <SEO
-      title="顯示被放出嚟嘅康文署羽毛球場嘅網站"
+      title="康文署羽毛球放場通知"
       lang="zh-hk"
     />
     <IndexModules cancellations={data.cancellationStatus.cancellations} />
