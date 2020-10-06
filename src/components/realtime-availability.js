@@ -42,7 +42,7 @@ class ReadtimeAvailability extends Component {
   }
 
   state = {
-    seletectedDate: moment().tz("America/Danmarkshavn").add(10,'days').format('YYYYMMDD'),
+    seletectedDate: moment().tz("America/Danmarkshavn").add((Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8?9:10),'days').format('YYYYMMDD'),
     courtAvailability: {},
     showFilter: false,
     area : {
@@ -140,7 +140,7 @@ class ReadtimeAvailability extends Component {
     let dateBtnsDom, courtAvailabilityDom, filterDom
     let dateBtnDom = []
 
-    const displayDays = moment().tz("Asia/Hong_Kong").format('HH')*1 < 8? 10: 11
+    const displayDays = Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8? 10: 11
     const day = {
       '0': '日',
       '1': '一',
@@ -155,7 +155,7 @@ class ReadtimeAvailability extends Component {
       let buttonClassName = 'date-button'
       let date = moment().tz("Asia/Hong_Kong").add(j,'days').format('YYYYMMDD')
 
-      if (date === seletectedDate) {
+      if(date === seletectedDate) {
         buttonClassName += ' active'
       }
 
