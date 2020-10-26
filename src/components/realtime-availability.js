@@ -29,6 +29,7 @@ class ReadtimeAvailability extends Component {
     axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-court-availabitity?date=" + this.state.seletectedDate)
       .then((val) => {
         if (val.data) {
+          this.setState({ seletectedDate: this.state.seletectedDate });
           this.setState({ courtAvailability: {[this.state.seletectedDate]: encryptor.decrypt(val.data).data} })
         }
       })
