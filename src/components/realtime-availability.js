@@ -141,7 +141,7 @@ class ReadtimeAvailability extends Component {
     let dateBtnsDom, courtAvailabilityDom, filterDom
     let dateBtnDom = []
 
-    const displayDays = Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8? 10: 11
+    const displayDays = Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8? 7: 8
     const day = {
       '0': '日',
       '1': '一',
