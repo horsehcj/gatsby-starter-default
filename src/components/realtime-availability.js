@@ -43,7 +43,7 @@ class ReadtimeAvailability extends Component {
   }
 
   state = {
-    seletectedDate: moment().tz("America/Danmarkshavn").add((Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8?7:8),'days').format('YYYYMMDD'),
+    seletectedDate: moment().tz("America/Danmarkshavn").add((Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8?6:7),'days').format('YYYYMMDD'),
     courtAvailability: {},
     showFilter: false,
     area : {
