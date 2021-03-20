@@ -1,0 +1,4 @@
+# robot.txt iwanttoplaybadminton.com/robots.txt
+User-agent: *
+
+Sitemap: https://iwanttoplaybadminton.com/sitemap.xml
