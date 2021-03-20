@@ -1,3 +1,13 @@
+const generateFavicons = sizes => {
+  return sizes.map(size => {
+    return {
+      src: `favicons/icon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+      type: 'image/png',
+    }
+  })
+}
+
 module.exports = {
   siteMetadata: {
     title: `康文署羽毛球放場通知`,
@@ -20,13 +30,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `康民署放場通知`,
+        short_name: `康民署放場通知`,
         start_url: `/`,
         background_color: `#0C0344`,
         theme_color: `#0C0344`,
         display: `minimal-ui`,
         icon: `src/images/fav-icon.png`, // This path is relative to the root of the site.
+        icons: generateFavicons([48, 72, 96, 144, 192, 256]),
       },
     },
     {
