@@ -1,9 +1,11 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import "./realtime-availability.scss"
 import Moment from 'react-moment';
 import axios from "axios";
+import cn from 'classnames';
 const moment = require('moment-timezone');
-const venues = require('./../../resources/venues.json');
+const venues = require('../../resources/venues.js').default;
+const areaName = require('../../resources/area.js').default;
 
 const key = 'I really want to play badminton';
 const encryptor = require('simple-encryptor')(key);
@@ -24,29 +26,12 @@ function getCookie(cname) {
   return "";
 }
 
-class ReadtimeAvailability extends Component {
-  componentDidMount() {
-    axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-court-availabitity?date=" + this.state.seletectedDate)
-      .then((val) => {
-        if (val.data) {
-          this.setState({ seletectedDate: this.state.seletectedDate });
-          this.setState({ courtAvailability: {[this.state.seletectedDate]: encryptor.decrypt(val.data).data} })
-        }
-      })
-
-    let cf = getCookie('f')
-    if (cf) {
-      this.setState({ area: JSON.parse(cf) });
-    }
-
-    document.getElementById('date-selection').scrollLeft = document.getElementById('date-selection').scrollWidth;
-  }
-
-  state = {
-    seletectedDate: moment().tz("America/Danmarkshavn").add((Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8?6:7),'days').format('YYYYMMDD'),
-    courtAvailability: {},
-    showFilter: false,
-    area : {
+const ReadtimeAvailability = (props) => {
+  const [selectedDate, setSelectedDate] = useState(moment().tz("America/Danmarkshavn").add((Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8?6:7),'days').format('YYYYMMDD'))
+  const [courtAvailability, setCourtAvailability] = useState({})
+  const [showFilter, setShowFilter] = useState(false)
+  const [area, setArea] = useState(
+    {
       KLN: {
         KC: true,
         KT: true,
@@ -73,263 +58,182 @@ class ReadtimeAvailability extends Component {
         TW: true,
         KWT: true
       }
-    },
-    areaName: {
-      KC: '九龍城',
-      KT: '官塘',
-      WTS: '黃大仙',
-      YTM: '油尖旺',
-      SSP: '深水埗',
-      WCH: '灣仔',
-      EN: '東區',
-      SN: '南區',
-      CW: '中西區',
-      SK: '西貢',
-      ST: '沙田區',
-      N: '北區',
-      TP: '大埔區',
-      TM: '屯門區',
-      YL: '元朗區',
-      IS: '離島區',
-      TW: '荃灣區',
-      KWT: '葵青區'
     }
-  }
+  )
 
-  selectDate = (date) => {
-    this.setState({ seletectedDate: date });
+  useEffect(() => {
+    axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-court-availabitity?date=" + selectedDate)
+      .then((val) => {
+        if (val.data) {
+          let newData = {}
+          newData[selectedDate] = encryptor.decrypt(val.data).data
 
-    if (!this.state.courtAvailability[date]) {
+          setCourtAvailability(newData)
+        }
+      })
+
+    let cf = getCookie('f')
+    if (cf) {
+      setArea(JSON.parse(cf))
+    }
+
+    document.getElementById('date-selection').scrollLeft = document.getElementById('date-selection').scrollWidth;
+  }, [selectedDate])
+
+  const selectDate = (date) => {
+    setSelectedDate(date)
+
+    if (!courtAvailability[date]) {
       axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-court-availabitity?date=" + date)
         .then((val) => {
           if (val.data) {
-            this.setState(prevState => ({
-              courtAvailability:{
-                ...prevState.courtAvailability,
-                [this.state.seletectedDate]: encryptor.decrypt(val.data).data
-              }
-            }))
+            let newData = {}
+            newData[date] = encryptor.decrypt(val.data).data
+
+            setCourtAvailability({
+              ...courtAvailability,
+              ...newData
+            })
           }
         })
     }
   }
 
-  toggleFilter = () => {
-    this.setState({ showFilter: !this.state.showFilter });
+  const toggleFilter = () => {
+    setShowFilter(!showFilter)
   }
 
-  confirmFilter = () => {
-    document.cookie = "f=" + JSON.stringify(this.state.area) + "; expires=Sun, 18 Dec 2033 12:00:00 UTC"
-    this.toggleFilter()
+  const confirmFilter = () => {
+    document.cookie = "f=" + JSON.stringify(area) + "; expires=Sun, 18 Dec 2033 12:00:00 UTC"
+    toggleFilter()
   }
 
-  onChangeFilter = (area, region) => {
-    this.setState(prevState => ({
-      area: {
-        ...prevState.area,
-        [area]: {
-          ...prevState.area[area],
-          [region]: !this.state.area[area][region]
-        }
-      }
-    }));
+  const onChangeFilter = (selectedArea, selectedRegion) => {
+    let newData = Object.assign({}, area[selectedArea])
+    newData[selectedRegion] = !area[selectedArea][selectedRegion]
+
+    setArea({
+      ...area,
+      [selectedArea]: newData
+    })
   }
 
-  render() {
-    const { courtAvailability, seletectedDate, showFilter, area, areaName } = this.state;
+  const displayDays = Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8? 7: 8
 
-    let dateBtnsDom, courtAvailabilityDom, filterDom
-    let dateBtnDom = []
+  const day = {
+    '0': '日',
+    '1': '一',
+    '2': '二',
+    '3': '三',
+    '4': '四',
+    '5': '五',
+    '6': '六'
+  }
 
-    const displayDays = Number(moment().tz("Asia/Hong_Kong").format('HH')) < 8? 7: 8
-    const day = {
-      '0': '日',
-      '1': '一',
-      '2': '二',
-      '3': '三',
-      '4': '四',
-      '5': '五',
-      '6': '六'
+  let todayCourtAvailability = courtAvailability[selectedDate]
+  let filteredCourtAvailabilityArr, filteredCourtAvailabilityObj
+
+  if (todayCourtAvailability) {
+    filteredCourtAvailabilityArr = todayCourtAvailability.filter((stadium) => {
+      return area[venues[stadium.venue].region][venues[stadium.venue].district]
+    })
+
+    filteredCourtAvailabilityObj = {}
+
+    for (let i = 0; i < filteredCourtAvailabilityArr.length; i++) {
+      filteredCourtAvailabilityObj[filteredCourtAvailabilityArr[i].venue] = filteredCourtAvailabilityArr[i].freeCourts
     }
+  }
 
-    for (let j=1; j<displayDays; j++) {
-      let buttonClassName = 'date-button'
-      let date = moment().tz("Asia/Hong_Kong").add(j,'days').format('YYYYMMDD')
+  const filteringSections = [
+    {label: "九龍區", value: "KLN"},
+    {label: "香港區", value: "HK"},
+    {label: "新界東區", value: "NTE"},
+    {label: "新界西區", value: "NTW"},
+  ]
 
-      if(date === seletectedDate) {
-        buttonClassName += ' active'
-      }
-
-      dateBtnDom.push(
-        <button key={date} className={buttonClassName} onClick={() => this.selectDate(date)}>
-          <Moment format="DD/MM">
-            {date}
-          </Moment> ({day[moment(date, 'YYYYMMDD').format('d')]})
-        </button>
-      )
-    }
-
-    dateBtnsDom = (
+  return (
+    <div className={cn("court-availability-table", props.displayedmodule === 2 && "hide")}>
       <div id="date-selection" className="date-selection">
-        {dateBtnDom}
-      </div>
-    )
-
-    if (courtAvailability[seletectedDate]) {
-      let todayCourtAvailability = courtAvailability[seletectedDate]
-      let filteredCourtAvailabilityArr = todayCourtAvailability.filter((stadium) => {
-        return area[venues[stadium.venue].region][venues[stadium.venue].district]
-      })
-
-      let filteredCourtAvailabilityObj = {}
-
-      for (let i = 0; i < filteredCourtAvailabilityArr.length; i++) {
-        filteredCourtAvailabilityObj[filteredCourtAvailabilityArr[i].venue] = filteredCourtAvailabilityArr[i].freeCourts
-      }
-
-      courtAvailabilityDom = (
-        <div className="court-availability">
-          <div className="court-row court-row-header">
-            <div className="court-label" role="button" onClick={this.toggleFilter} tabIndex={0} onKeyDown={this.toggleFilter}>顯示場館 ▼</div>
-            <div className="court-timeslot">7</div>
-            <div className="court-timeslot">8</div>
-            <div className="court-timeslot">9</div>
-            <div className="court-timeslot">10</div>
-            <div className="court-timeslot">11</div>
-            <div className="court-timeslot">12</div>
-            <div className="court-timeslot">1</div>
-            <div className="court-timeslot">2</div>
-            <div className="court-timeslot">3</div>
-            <div className="court-timeslot">4</div>
-            <div className="court-timeslot">5</div>
-            <div className="court-timeslot">6</div>
-            <div className="court-timeslot">7</div>
-            <div className="court-timeslot">8</div>
-            <div className="court-timeslot">9</div>
-            <div className="court-timeslot">10</div>
-          </div>
-          { Object.keys(filteredCourtAvailabilityObj).map((court, i) => {
-            let rowClass="court-row"
-
-            if(i%2 !== 0) {
-              rowClass+=" even"
-            }
+        {
+          Array(displayDays).fill().map((d, i) => {
+            let date = moment().tz("Asia/Hong_Kong").add(i,'days').format('YYYYMMDD')
 
             return (
-              <div className={rowClass} key={court}>
-                <div className="court-label">
-                  {venues[court].name.TC}
+              <button key={i} className={cn('date-button', date === selectedDate && 'active')} onClick={() => selectDate(date)}>
+                <Moment format="DD/MM">
+                  {date}
+                </Moment> ({day[moment(date, 'YYYYMMDD').format('d')]})
+              </button>
+            )
+          })
+        }
+      </div>
+
+      <div className="court-availability">
+        <div className="court-row court-row-header">
+          <div className="court-label" role="button" onClick={toggleFilter} tabIndex={0} onKeyDown={toggleFilter}>顯示場館 ▼</div>
+          {
+            [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((h, i) => {
+              return <div className="court-timeslot" key={i}>{h}</div>
+            })
+          }
+        </div>
+
+        { todayCourtAvailability && Object.keys(filteredCourtAvailabilityObj).map((court, i) => {
+          return (
+            <div className={cn("court-row", i%2 !== 0 && "even")} key={court}>
+              <div className="court-label">
+                {venues[court].name.TC}
+              </div>
+
+              { Object.keys(filteredCourtAvailabilityObj[court]).map((no) => {
+                return (
+                  <div
+                    key={no}
+                    className={cn(
+                      "court-timeslot",
+                      (no > 10 || moment(selectedDate, 'YYYYMMDD').format('d') === '6' || moment(selectedDate, 'YYYYMMDD').format('d') === '0') && "peak",
+                      filteredCourtAvailabilityObj[court][no] === 0 && "empty"
+                    )}>
+                      {filteredCourtAvailabilityObj[court][no]}
+                  </div>
+                )
+              })}
+            </div>
+          )
+        })}
+
+        {
+          !todayCourtAvailability && (<p className="loading">Loading...</p>)
+        }
+      </div>
+
+      <div className={cn("filter-container", showFilter && "active")}>
+        {
+          filteringSections.map((section, i) => {
+            return (
+              <div key={i} className="filter-districts-container">
+                <h2>{section.label}</h2>
+
+                <div className="filter-districts">
+                  { Object.keys(area[section.value]).map((item) => {
+                    return (
+                      <div key={item} className="form-group">
+                        <input id={item} type="checkbox" value={item} onChange={() => onChangeFilter(section.value, item)} checked={area[section.value][item]} />
+                        <label htmlFor={item} className="noselect">{areaName[item]}</label>
+                      </div>
+                    )
+                  })}
                 </div>
-
-                { Object.keys(filteredCourtAvailabilityObj[court]).map((no) => {
-                  let timeslotClass = "court-timeslot"
-
-                  if (no > 10 || moment(seletectedDate, 'YYYYMMDD').format('d') === '6' || moment(seletectedDate, 'YYYYMMDD').format('d') === '0') {
-                    timeslotClass += " peak"
-                  }
-
-                  if (filteredCourtAvailabilityObj[court][no] === 0) {
-                    timeslotClass += " empty"
-                  }
-
-                  return (
-                    <div key={no} className={timeslotClass}>{filteredCourtAvailabilityObj[court][no]}</div>
-                  )
-                })}
               </div>
             )
-          })}
-        </div>
-      )
-
-      let filterClass = "filter-container"
-
-      if (showFilter) {
-        filterClass += " active"
-      }
-
-      filterDom = (
-        <div className={filterClass}>
-          <div className="filter-districts-container">
-            <h2>九龍區</h2>
-
-            <div className="filter-districts">
-              { Object.keys(area.KLN).map((item) => {
-                  return (
-                    <div key={item} className="form-group">
-                      <input id={item} type="checkbox" value={item} onChange={() => this.onChangeFilter('KLN', item)} checked={area.KLN[item]} />
-                      <label htmlFor={item} className="noselect">{areaName[item]}</label>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-          <div className="filter-districts-container">
-            <h2>香港區</h2>
-
-            <div className="filter-districts">
-              { Object.keys(area.HK).map((item) => {
-                  return (
-                    <div key={item} className="form-group">
-                      <input id={item} type="checkbox" value={item} onChange={() => this.onChangeFilter('HK', item)} checked={area.HK[item]} />
-                      <label htmlFor={item} className="noselect">{areaName[item]}</label>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-          <div className="filter-districts-container">
-            <h2>新界東區</h2>
-
-            <div className="filter-districts">
-              { Object.keys(area.NTE).map((item) => {
-                  return (
-                    <div key={item} className="form-group">
-                      <input id={item} type="checkbox" value={item} onChange={() => this.onChangeFilter('NTE', item)} checked={area.NTE[item]} />
-                      <label htmlFor={item} className="noselect">{areaName[item]}</label>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-          <div className="filter-districts-container">
-            <h2>新界西區</h2>
-
-            <div className="filter-districts">
-              { Object.keys(area.NTW).map((item) => {
-                  return (
-                    <div key={item} className="form-group">
-                      <input id={item} type="checkbox" value={item} onChange={() => this.onChangeFilter('NTW', item)} checked={area.NTW[item]} />
-                      <label htmlFor={item} className="noselect">{areaName[item]}</label>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-          <button onClick={this.confirmFilter}>確定</button>
-        </div>
-      )
-    } else {
-      courtAvailabilityDom = <p className="loading">Loading...</p>
-    }
-
-    let tableClass = "court-availability-table"
-    if (this.props.displayedmodule === 2) {
-      tableClass+= " hide"
-    }
-
-    return (
-      <div className={tableClass}>
-        {dateBtnsDom}
-        {courtAvailabilityDom}
-        {filterDom}
+          })
+        }
+        <button onClick={confirmFilter}>確定</button>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default ReadtimeAvailability
