@@ -40,7 +40,6 @@ const Header = (props) => {
   }
 
   useEffect(() => {
-    console.log("useEffect")
     const firebaseToken = getCookie('lcsdFirebaseToken')
     if( firebaseToken ) {
       axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-settings?token=" + firebaseToken)
@@ -62,7 +61,7 @@ const Header = (props) => {
         window.location.reload();
       });
 
-      firebase.messaging().onTokenRefresh(() => {
+      firebase.messaging.onTokenRefresh(() => {
         firebase.messaging().getToken()
           .then((refreshedFirebaseToken) => {
             console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
