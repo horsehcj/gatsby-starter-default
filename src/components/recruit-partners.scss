@@ -1,0 +1,42 @@
+.recruit-partners-section {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 12px;
+
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-container {
+    display: flex;
+
+    input {
+      border: none;
+      border-bottom: 1px solid #777;
+      padding: 8px 2px;
+      flex: 1;
+      background-color: transparent;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .submit-btn {
+      background-color: #0C0344;
+      color: white;
+      padding: 8px 30px;
+      border: none;
+      cursor: pointer;
+      margin-left: 16px;
+      border-radius: 4px;
+
+      &.loading {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+    }
+  }
+}

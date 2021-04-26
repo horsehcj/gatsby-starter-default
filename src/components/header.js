@@ -76,14 +76,6 @@ const Header = (props) => {
     this.setState({ showSubscribsionBar: !showSubscribsionBar });
   }
 
-  const setTokenSentToServer = (sent) => {
-    window.localStorage.setItem('sentToServer', sent ? 0 : 0);
-  }
-
-  const isTokenSentToServer = () => {
-    return window.localStorage.getItem('sentToServer') === 1;
-  }
-
   const requestNotificationPermission = () => {
     if (firebase.messaging.isSupported()) {
       setIsLoading(true)
