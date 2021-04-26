@@ -76,25 +76,6 @@ const Header = (props) => {
     this.setState({ showSubscribsionBar: !showSubscribsionBar });
   }
 
-  const sendTokenToServer = (currentToken) => {
-    if (!isTokenSentToServer()) {
-      document.cookie = "lcsdFirebaseToken=" + currentToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
-
-      let body = {
-        token: currentToken,
-        settings: subscribe
-      };
-
-      axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
-        .then(() => {
-          setTokenSentToServer(true);
-        })
-    } else {
-      console.log('Token already sent to server so won\'t send it again ' +
-          'unless it changes');
-    }
-  }
-
   const setTokenSentToServer = (sent) => {
     window.localStorage.setItem('sentToServer', sent ? 0 : 0);
   }
