@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Logo from "../images/i-want-to-book-court.png";
 import "./header.scss"
@@ -21,21 +21,38 @@ function getCookie(cname) {
   return "";
 }
 
-class Header extends Component {
-  componentDidMount() {
+const Header = (props) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [alreadySubscribe, setAlreadySubscribe] = useState(false)
+  const [showSubscribsionBar, setShowSubscribsionBar] = useState(false)
+  const [subscribe, setSubscribe] = useState({
+    kowloon: true,
+    hongkong: true,
+    nte: true,
+    ntw: true
+  })
+
+  const areaName = {
+    kowloon: '九龍',
+    hongkong: '香港島',
+    nte: '新界東',
+    ntw: '新界西'
+  }
+
+  useEffect(() => {
+    console.log("useEffect")
     const firebaseToken = getCookie('lcsdFirebaseToken')
     if( firebaseToken ) {
       axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-settings?token=" + firebaseToken)
         .then((val) => {
           if (val.data) {
-            this.setState({ alreadySubscribe: true });
-
-            this.setState({ subscribe: {
+            setAlreadySubscribe(true)
+            setSubscribe({
               kowloon: val.data.kowloon,
               hongkong: val.data.hongkong,
               nte: val.data.nte,
               ntw: val.data.ntw
-            }});
+            })
           } else {
             document.cookie = "lcsdFirebaseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           }
@@ -49,58 +66,38 @@ class Header extends Component {
         firebase.messaging().getToken()
           .then((refreshedFirebaseToken) => {
             console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
-            this.setTokenSentToServer(false);
-            this.sendTokenToServer(refreshedFirebaseToken);
+            setTokenSentToServer(false);
+            sendTokenToServer(refreshedFirebaseToken);
           })
       });
     }
-  }
+  })
 
-  state = {
-    isLoading: false,
-    alreadySubscribe: false,
-    showSubscribsionBar: false,
-    areaName: {
-      kowloon: '九龍',
-      hongkong: '香港島',
-      nte: '新界東',
-      ntw: '新界西'
-    },
-    subscribe: {
-      kowloon: true,
-      hongkong: true,
-      nte: true,
-      ntw: true
-    }
-  };
-
-  onChangeSubscribe = e => {
+  const onChangeSubscribe = e => {
     const key = e.target.value;
 
-    this.setState(state => ({
-      subscribe: {
-        ...state.subscribe,
-        [key]: !state.subscribe[key]
-      }
-    }));
+    setSubscribe({
+      ...subscribe,
+      [key]: !subscribe[key]
+    })
   };
 
-  toggleSubscribsionBar = () => {
-    this.setState({ showSubscribsionBar: !this.state.showSubscribsionBar });
+  const toggleSubscribsionBar = () => {
+    this.setState({ showSubscribsionBar: !showSubscribsionBar });
   }
 
-  sendTokenToServer(currentToken) {
-    if (!this.isTokenSentToServer()) {
+  const sendTokenToServer = (currentToken) => {
+    if (!isTokenSentToServer()) {
       document.cookie = "lcsdFirebaseToken=" + currentToken + "; expires=Sun, 18 Dec 2033 12:00:00 UTC";
 
       let body = {
         token: currentToken,
-        settings: this.state.subscribe
+        settings: subscribe
       };
 
       axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
         .then(() => {
-          this.setTokenSentToServer(true);
+          setTokenSentToServer(true);
         })
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
@@ -108,17 +105,17 @@ class Header extends Component {
     }
   }
 
-  setTokenSentToServer = (sent) => {
+  const setTokenSentToServer = (sent) => {
     window.localStorage.setItem('sentToServer', sent ? 0 : 0);
   }
 
-  isTokenSentToServer = () => {
+  const isTokenSentToServer = () => {
     return window.localStorage.getItem('sentToServer') === 1;
   }
 
-  requestNotificationPermission = () => {
+  const requestNotificationPermission = () => {
     if (firebase.messaging.isSupported()) {
-      this.setState({ isLoading: true });
+      setIsLoading(true)
       firebase.messaging()
         .requestPermission()
         .then(() => firebase.messaging().getToken())
@@ -127,21 +124,21 @@ class Header extends Component {
 
           let body = {
             token: lcsdFirebaseToken,
-            settings: this.state.subscribe
+            settings: subscribe
           };
 
           return axios.post("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/webpushuser", body)
         })
         .then((res) => {
-          this.setState({ alreadySubscribe: true });
-          this.setState({ showSubscribsionBar: false });
+          setAlreadySubscribe(true)
+          setShowSubscribsionBar(false)
 
           setTimeout(() => {
-            this.setState({ isLoading: false });
+            setIsLoading(false)
           }, 300)
         })
         .catch((err) => {
-          this.setState({ isLoading: false });
+          setIsLoading(false)
           alert('請再試一次')
           console.log(err)
         });
@@ -150,46 +147,40 @@ class Header extends Component {
     } 
   }
 
-  render() {
-    const { siteTitle } = this.props;
-    const { subscribe } = this.state;
-    const { areaName, alreadySubscribe, showSubscribsionBar, isLoading } = this.state;
+  return (
+    <React.Fragment>
+      <header>
+        <h1>
+          <img src={Logo} alt="" />
+          <Link to="/">{props.siteTitle}</Link>
+        </h1>
 
-    return (
-      <React.Fragment>
-        <header>
-          <h1>
-            <img src={Logo} alt="" />
-            <Link to="/">{siteTitle}</Link>
-          </h1>
+        <button className={alreadySubscribe? '': 'non-register'} onClick={toggleSubscribsionBar}>
+          {alreadySubscribe? '更新網站推送通知' : '網站推送通知'}
+        </button>
+      </header>
 
-          <button className={alreadySubscribe? '': 'non-register'} onClick={this.toggleSubscribsionBar}>
-            {alreadySubscribe? '更新網站推送通知' : '網站推送通知'}
-          </button>
-        </header>
-
-        <div className={`area-selection-container ${showSubscribsionBar ? "active" : ""}`}>
-          <p>
-            請選擇你想收到的通知內容:
-          </p>
-          <div className="area-selection">
-            { Object.keys(subscribe).map((item) => {
-                return (
-                  <div key={item} className="form-group">
-                    <input id={item} type="checkbox" value={item} onChange={this.onChangeSubscribe} checked={subscribe[item]} />
-                    <label htmlFor={item} className="noselect">{areaName[item]}</label>
-                  </div>
-                )
-              })
-            }
-          </div>
-          <button className="subscribe-button noselect" onClick={this.requestNotificationPermission} onKeyDown={this.requestNotificationPermission}>
-            {isLoading? '請等等...' : (alreadySubscribe? '更新' : '確認')}
-          </button>
+      <div className={`area-selection-container ${showSubscribsionBar ? "active" : ""}`}>
+        <p>
+          請選擇你想收到的通知內容:
+        </p>
+        <div className="area-selection">
+          { Object.keys(subscribe).map((item) => {
+              return (
+                <div key={item} className="form-group">
+                  <input id={item} type="checkbox" value={item} onChange={onChangeSubscribe} checked={subscribe[item]} />
+                  <label htmlFor={item} className="noselect">{areaName[item]}</label>
+                </div>
+              )
+            })
+          }
         </div>
-      </React.Fragment>
-    )
-  }
+        <button className="subscribe-button noselect" onClick={requestNotificationPermission} onKeyDown={requestNotificationPermission}>
+          {isLoading? '請等等...' : (alreadySubscribe? '更新' : '確認')}
+        </button>
+      </div>
+    </React.Fragment>
+  )
 }
 
 export default Header
