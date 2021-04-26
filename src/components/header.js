@@ -60,15 +60,6 @@ const Header = (props) => {
       firebase.messaging().onMessage((payload) => {
         window.location.reload();
       });
-
-      firebase.messaging.onTokenRefresh(() => {
-        firebase.messaging().getToken()
-          .then((refreshedFirebaseToken) => {
-            console.log('lcsdFirebaseToken: ' + refreshedFirebaseToken)
-            setTokenSentToServer(false);
-            sendTokenToServer(refreshedFirebaseToken);
-          })
-      });
     }
   })
 
