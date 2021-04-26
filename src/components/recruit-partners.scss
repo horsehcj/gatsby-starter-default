@@ -1,11 +1,15 @@
 .recruit-partners-section {
   background-color: #f5f5f5;
   padding: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 
   p {
     &:last-of-type {
       margin-bottom: 0;
+    }
+
+    &:first-of-type {
+      margin-bottom: 16px;
     }
   }
 
