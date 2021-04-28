@@ -19,7 +19,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   const { createNode } = actions;
-  const firebaseResult = await fetch('https://court-finder-37f55.firebaseio.com/cancellation_status.json')
+  const firebaseResult = await fetch('https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-cancellations')
   const resultData = await firebaseResult.json()
 
   const processContent = content => {
