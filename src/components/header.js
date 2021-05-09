@@ -61,7 +61,7 @@ const Header = (props) => {
         window.location.reload();
       });
     }
-  })
+  }, [])
 
   const onChangeSubscribe = e => {
     const key = e.target.value;
