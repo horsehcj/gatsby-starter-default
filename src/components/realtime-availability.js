@@ -61,22 +61,6 @@ const ReadtimeAvailability = (props) => {
     }
   )
 
-  const getCookie = (cname) => {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) === ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
   const getAvaFromFirebase = () => {
     axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-court-availabitity?date=" + selectedDate)
       .then((val) => {
@@ -105,7 +89,7 @@ const ReadtimeAvailability = (props) => {
         getAvaFromFirebase()
       }, 5000)
     }
-  }, [selectedDate])
+  }, [])
 
   const selectDate = (date) => {
     setSelectedDate(date)
