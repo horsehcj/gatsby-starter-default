@@ -10,14 +10,41 @@ const CancellationStatusDate = (props) => {
   const [isFetching, setIsFetching] = useState(true)
   const [todaysCancellations, setTodaysCancellations] = useState({})
 
-  useEffect(() => {
+  const getCookie = (cname) => {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  const getDataFromFirebase = () => {
     axios.get("https://us-central1-court-finder-37f55.cloudfunctions.net/widgets/get-todays-cancellations")
       .then((val) => {
         if (val.data) {
           setIsFetching(false)
           setTodaysCancellations(val.data[0]);
+          document.cookie = "lf=" + new Date().getTime();
         }
       })
+  }
+
+  useEffect(() => {
+    if (getCookie('lf') === "" || getCookie('lf') < new Date().getTime() - 5000) {
+      getDataFromFirebase()
+    } else {
+      setTimeout(() => {
+        getDataFromFirebase()
+      }, 5000)
+    }
   }, [])
 
   const setDisplayDate = (date) => {
