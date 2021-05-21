@@ -73,7 +73,7 @@ const Header = (props) => {
   };
 
   const toggleSubscribsionBar = () => {
-    this.setState({ showSubscribsionBar: !showSubscribsionBar });
+    setShowSubscribsionBar(!showSubscribsionBar)
   }
 
   const requestNotificationPermission = () => {
