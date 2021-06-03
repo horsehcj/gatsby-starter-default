@@ -27,7 +27,7 @@ const RecruitPartners = () => {
 
       <p>希望每位進入 Channel 既人都可以幫我一件事，就係為我新整既約戰平台提供建議，<a target="_blank" href="https://iwtpb.com">https://iwtpb.com</a></p>
 
-      <p>進入後完成以下動作：<br />1. 建立戰局<br />2. 參加其他人戰局<br />3. 批准參加者申請</p>
+      <p>進入後完成以下動作 (只用作測試，並非真正開局／參加)：<br />1. 建立戰局<br />2. 參加其他人戰局<br />3. 批准參加者申請</p>
       <p>完成後花幾分鐘填以下問卷，我就會將你加入到 telegram，如果有任何意見或者問題歡迎提出<br /><a href="https://forms.gle/cgfEJjjK4nXcuJaJ8">https://forms.gle/cgfEJjjK4nXcuJaJ8</a></p>
       { isSubmitted && (<div className="form-container">
           <input type="text" placeholder="Wtsapp電話 / Telegram / email" value={contact} onChange={e => setContact(e.target.value)} />
