@@ -23,8 +23,13 @@ const RecruitPartners = () => {
 
   return (
     <div className="recruit-partners-section">
-      <p>21/5 更新: 放場資訊將會於2021年7月1日移到私人 Telegram 頻道，而本網站只會用作實時顯示場地狀況，有興趣加入 TG 頻道請留低聯絡方法</p>
-      { !isSubmitted && (<div className="form-container">
+      <p>3/6 更新: 此網站於 1/7 會轉為係 telegram 既非公開 Channel 繼續運作，同時間 iPhone 用戶可以真正享受到 push notification</p>
+
+      <p>希望每位進入 Channel 既人都可以幫我一件事，就係為我新整既約戰平台提供建議，<a target="_blank" href="https://iwtpb.com">https://iwtpb.com</a></p>
+
+      <p>進入後完成以下動作：<br />1. 建立戰局<br />2. 參加其他人戰局<br />3. 批准參加者申請</p>
+      <p>完成後花幾分鐘填以下問卷，我就會將你加入到 telegram，如果有任何意見或者問題歡迎提出<br /><a href="https://forms.gle/cgfEJjjK4nXcuJaJ8">https://forms.gle/cgfEJjjK4nXcuJaJ8</a></p>
+      { isSubmitted && (<div className="form-container">
           <input type="text" placeholder="Wtsapp電話 / Telegram / email" value={contact} onChange={e => setContact(e.target.value)} />
           <button className={cn("submit-btn", isLoading && "loading")} onClick={submitPartner}>提交</button>
         </div>)
