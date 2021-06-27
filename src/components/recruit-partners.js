@@ -23,7 +23,7 @@ const RecruitPartners = () => {
 
   return (
     <div className="recruit-partners-section">
-      <p>21/6 更新: 此網站於 1/7 會轉為係 telegram 既非公開 Channel 繼續運作，同時間 iPhone 用戶可以真正享受到 push notification</p>
+      <p>21/6 更新: 此網站於 4/7 會轉為係 telegram 既非公開 Channel 繼續運作，同時間 iPhone 用戶可以真正享受到 push notification</p>
 
       { isSubmitted && (<div className="form-container">
           <input type="text" placeholder="Wtsapp電話 / Telegram / email" value={contact} onChange={e => setContact(e.target.value)} />
