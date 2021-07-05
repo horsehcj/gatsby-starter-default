@@ -23,7 +23,7 @@ const RecruitPartners = () => {
 
   return (
     <div className="recruit-partners-section">
-      <p>21/6 更新: 此網站於 4/7 會轉為係 telegram 既非公開 Channel 繼續運作，同時間 iPhone 用戶可以真正享受到 push notification</p>
+      <p>5/7 更新: 此網站於 4/7 轉為係 telegram 既非公開 Channel 繼續運作，同時間 iPhone 用戶可以真正享受到 push notification</p>
 
       <div>
         <h4>雙打 Whatsapp 群組</h4>
